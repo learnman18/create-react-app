@@ -1,7 +1,7 @@
 {
   "name": "firstapp",
   "version": "0.1.0",
-  "homepage": "https://create-react-app-liart-alpha.vercel.app/",
+  "homepage": "https://learnman18.github.io/ReactFiles",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.11.1",
