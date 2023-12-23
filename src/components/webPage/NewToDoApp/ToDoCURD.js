@@ -68,7 +68,7 @@ const MyToDoList = () => {
 
     return(
         <React.Fragment>
-            <div className="pb-5" style={{width:"20%"}}>
+            <div className="d-flex justify-content-center align-items-center py-5">
                 <div className="border border-dark p-2">
                     <h5>TO DO APP</h5>
                     <div className="d-flex align-items-center border border-dark">                    
