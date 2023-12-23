@@ -1,0 +1,107 @@
+so the step is we pass the props and goes to that particular file , It's parent to child
+so child can easily access the props and its value.
+
+in the below handleDelete example we have passed a props along with the argument so when the
+function is created it can access the argument that is 'i' in the example.
+
+so the flow is 
+
+app.js - It's parent of all comp
+TheApp.js - all the child comps are called in this comp and porps are also passed for the comps.
+Header - 
+CreateNotes - 
+Notes - 
+
+TheApp.js
+
+suppose now Notes comp has been called so Notes.js comp can access all the props which we has passed from 
+TheApp.js file which a parent file.
+
+so we have a passed a function as props 'handleDelete={()=>deleteItem(i)}' in Notes comp in theApp.js file along with the argument,
+and it works onCLick event in the notes.js file, since notes.js has already it acesss it as props
+i.e 'onClick={props.handleDelete}' , it has the all the data and when user clicks on the button the click
+event gets triggred and 'const deleteItem' function gets called in theApp.js file.
+
+return(
+        <>
+            <Header></Header>
+            <CreateNotes test={AddNotes}></CreateNotes>
+            <br /><br />
+            {
+                addItem.map((curVal , i)=>{
+                    console.log("curVal" , curVal);
+                    if(curVal.Title !== "" && curVal.Content !== ""){
+                        return <Notes key={i} id={i} 
+                                title={curVal.Title} content={curVal.Content} 
+                                handleDelete={()=>deleteItem(i)}></Notes>
+                    }else{
+                        return null;
+                    }
+                })
+            }
+        </>
+    )
+
+-----------------------------
+
+createNotes.js
+
+    const inputChngEvent = (event)=>{
+        // console.log(event.target.value);
+        const {name , value} = event.target
+        // we have destructured name and value here it is same as value = event.target.value & same goes for name
+
+        setNotes((previouValues)=>{
+            // console.log("prvous value" , previouValues);
+            return {...previouValues , [name] : value}
+            /*so here it checks what is the value we have in the name field in the input & textarea we have name
+            so in the input and textareas we have Title and Contnet, after checking it compares
+            the objects we have created in the useState, both the name and object name should be similar 
+            and if it is similar it assign the value in it, it both names are not similiar it creates
+            new object.
+            */
+            
+        })
+        console.log(notes)
+
+    }
+
+
+     const AddItToNotes = ()=>{
+        props.test(notes);
+        //passing notes as object parameter so it can be access on TheApp.js page, notes has all the 
+        values we have entered in title and content field.
+        setNotes({
+            Title:'',
+            Content:''
+        })
+        //this is used to make the title and content field empty once you click the button to add the notes
+    }
+
+    -------------
+
+    notes.js
+
+    itemIdtoDelete is coming from the props we haave passed. so it will check the index number passed from 
+    the deleteItem(i) 'itemIdtoDelete' and the i passed in the filter function once the condition matches it will delete that note,
+    it will just check if the index number of both i & itemidTodelete is same it will delete it, as we know filter loop through all 
+    the arrays elements, suppose I clicked on the 1st note so it will check the index of clicked note as I have clicked on the
+    1st one it will check the index of filter it will start from the 0 and once it reaches the 1 it will delte that item, 
+    as we know filter loops through all one by one and since it returns array it starts from zero, check the console to understand 
+    it better.
+
+    const deleteItem = (itemIdtoDelete)=>{
+        const newAddItem = addItem.filter((item , i) =>{
+            console.log("deleted Item" , i , itemIdtoDelete , i !== itemIdtoDelete);
+            return i !== itemIdtoDelete
+        })
+        setAddItem(newAddItem)
+    }
+
+
+    --------------
+
+    we can pass the props function and call the function for notes.js in notes.js file it self like
+    we have did it for the createNotes.js file, but for notes.js we have directly called it in props
+    created a function.
+    check the function props of both createNotes.js and notes.js file for better understanding

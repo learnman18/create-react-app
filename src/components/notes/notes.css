@@ -1,0 +1,21 @@
+.header {
+    background: burlywood;
+}
+.parentNotes{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+textarea{
+    min-height: 100px;
+}
+p{
+    margin-bottom: 5px;
+    border: 1px solid rgb(10, 1, 0);
+    margin-block-start: 0;
+    margin-block-end: 5px;
+    width:150px
+}
+.added-Notes{
+    display: flex;
+}

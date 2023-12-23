@@ -11,3 +11,141 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.msgGreeting , .toDoListMain{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.msgGreeting h1{
+  padding: 20px;
+  background: palegoldenrod;
+  width: 30%;
+  text-align: center;
+}
+
+.allCards{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px 40px;
+}
+
+.myCard .cardImg:hover{
+  transform: scale(1.10);
+  transition-delay: .3s;
+  transition-duration: .3s;
+}
+
+.myCard{
+  padding: 20px 20px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  margin-bottom: 50px;
+}
+
+.myCard .cardDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.myCard a {
+  padding: 10px 20px;
+  background: azure;
+  text-decoration: none;
+  font-weight: 500;
+  border: 1px solid beige;
+}
+
+.myCard img{
+  height: 300px;
+}
+
+.digitalClock{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 85vh;
+  font-family: ui-sans-serif;
+}
+
+.logFormCls {  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.logFormCls form{
+  border: 1px solid;
+  padding: 20px;
+  background-color: silver;
+}
+
+.logFormCls h1 , .logFormCls p {
+  padding: 0;
+  margin: 0;
+  font-style: italic;
+}
+
+.logFormCls p{
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.logFormCls form .logFormFields div{
+  padding-bottom: 20px;
+}
+
+.logFormCls form .logFormFields div input{
+  width: 300px;
+  padding: 5px 5px;
+  border-radius: 4px;
+  border: 1px solid black;
+}
+
+.logFormFields div input::placeholder{
+  font-size: 12px;
+}
+
+.button {
+  background-color: #FAFBFC;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  color: #24292E;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 6px 16px;
+
+}
+
+.button:hover {
+  background-color: #F3F4F6;
+  text-decoration: none;
+  transition-duration: 0.1s;
+}
+
+.toDoList{
+  height: 400px;
+  width: 30%;
+  border: 1px solid;
+  padding: 10px 20px;
+}
+
+.emptyDiv ol {
+    display: flex;
+    list-style-type: none;
+    padding-inline-start: 0;
+    flex-direction: column;
+}
+
+.emptyDiv ol li i{
+  padding-right: 5px;
+  cursor: pointer;
+}
+
