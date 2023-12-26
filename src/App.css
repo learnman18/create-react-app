@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 }
+
+/* Menu Dark and Light theme code when we toggle*/
+
+.blackAndWhite{
+  color: white;
+  background-color: black;
+}

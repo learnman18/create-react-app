@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const MyWeatherApp = () =>{
+const MyWeatherApp = (props) =>{
 
     const [city , setCity] = useState(null);
     const [search , setSearch] = useState("Mumbai");
@@ -20,7 +20,7 @@ const MyWeatherApp = () =>{
     return (
         <>
             <div className="d-flex justify-content-center align-items-center py-5">
-                <div className="border border-dark p-3">
+                <div className="p-3 border border-dark" style={props.borderClr}>
                     <div>
                         <h2>Weather App</h2>
                         <input type="text" onChange={(event)=>{

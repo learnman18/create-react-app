@@ -23,6 +23,7 @@ const ContactUs = () => {
         event.preventDefault();
         if(fields.name ==="" || fields.email === ""){
             console.log("its empty");
+            alert("Please enter something")
             return false;
         }else{
             alert(`My Name : ${fields.name}  \nMy Email : ${fields.email}` )
