@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../../../UndoRedo" //we import this file for undo redo or we can also add a CDN for this in index.html
 
 export default function PracticeOne() {
 
@@ -16,6 +17,11 @@ export default function PracticeOne() {
         setText("");
     }
 
+    const RemoveExtraSpaces = () => {
+        let extraSpace = text.split(/[ ]+/); //if we have more than one space
+        setText(extraSpace.join(" "));
+    }
+
     return(
         <div className="container my-5">
             <h3>Enter some text</h3>
@@ -28,7 +34,8 @@ export default function PracticeOne() {
                 <div className="my-3">
                     <button className="btn btn-primary me-3" onClick={UpperCase}>Upper Case</button>
                     <button className="btn btn-primary me-3" onClick={LowerCase}>Lower Case</button>
-                    <button className="btn btn-primary" onClick={ClearText}>Clear Text</button>
+                    <button className="btn btn-primary me-3" onClick={ClearText}>Clear Text</button>
+                    <button className="btn btn-primary me-3" onClick={RemoveExtraSpaces}>Remove extra Spaces</button>
                 </div>
              </div>
             <div>

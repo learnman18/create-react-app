@@ -7,7 +7,7 @@ const getLocalItem = () => {
     } else return [];
 }
 
-const MyToDoList = () => {
+const MyToDoList = (props) => {
 
     const [inputData , setinputData] = useState();
     const [AddItem , setAddItem] = useState(getLocalItem);
@@ -69,7 +69,7 @@ const MyToDoList = () => {
     return(
         <React.Fragment>
             <div className="d-flex justify-content-center align-items-center py-5">
-                <div className="border border-dark p-2">
+                <div className="border border-dark p-2" style={props.borderClr}>
                     <h5>TO DO APP</h5>
                     <div className="d-flex align-items-center border border-dark">                    
                         <input type="text" className="form-control fixBrdr" value={inputData} onChange={(e)=>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect,useState} from 'react';
 // import { Link } from 'react-router-dom';
 // import { ReactDOM } from 'react';
 import './App.css';
@@ -22,19 +22,58 @@ import Menu from './components/webPage/Menu'
 // import Greets from './components/greets';
 // import MiniCalculation, {Addition, Multiply, Subtract, Divide} from './components/MiniCal';
 // import Mov from './components/MovieData';
-
+import {Route, Routes } from 'react-router-dom';
+import { Navigate } from "react-router-dom";
+import About from './components/webPage/About';
+import Services from './components/webPage/Services';
+import ContactUs from './components/webPage/ContactUs';
+import Home from './components/webPage/Home';
 
 
 function App() {
+
+  const initialTheme = JSON.parse(localStorage.getItem('theme')) || {
+    color: "black",
+    backgroundColor: "white",
+  };
+  const [btnName , setBtnName] = useState(initialTheme.color==="white" ? "Light Mode" : "Dark Mode");
+  const [myStyle , setMyStyle] = useState(initialTheme);
+
+  //switch to dark and light mode
+
+  const DarkLightMode = () => {
+      const newStyle = myStyle.color === "black"
+      ? {color:"white" , backgroundColor:"black"}
+      : {color:"black" , backgroundColor:"white"}
+
+      setMyStyle(newStyle);
+      setBtnName(newStyle.color==="white" ? "Light Mode" : "Dark Mode")
+      // console.log(document.body.style = {myStyle});
+
+  }
+
+  //start- Adding CSS to document body
+
+  useEffect(()=>{
+    Object.assign(document.body.style , myStyle);
+    localStorage.setItem('theme', JSON.stringify(myStyle));
+  },[myStyle])
+
   return (
     <>
       {/* <Link to='/'>Home</Link> | 
       <Link to='travel'>Travel</Link> */}
-      <Menu></Menu>
+      <Menu BlackAndWhiteTheme={DarkLightMode} btnName={btnName}></Menu>
+      <Routes>
+          <Route exact path='/home' element={<Home></Home>}></Route>
+          <Route path='about' element={<About></About>}></Route>
+          <Route path='services' element={<Services></Services>}></Route>
+          <Route path='contact' element={<ContactUs></ContactUs>}></Route>
+          <Route path="/" element={<Navigate replace to="/home" />} />
+        </Routes>
     </>
   );
 }
-
 
 export default App;
 
