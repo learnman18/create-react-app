@@ -24,7 +24,7 @@ const Menu = (props) =>{
                             <Link to='/home' className="navbar-brand" style={{color:'inherit !important'}}>Navbar</Link>
                             <div className="">
                                 <button onClick={()=>{
-                                    props.BlackAndWhiteTheme()
+                                    props.BlackAndWhiteTheme();
                                 }}>{props.btnName}</button>
                             </div>
                         </div>

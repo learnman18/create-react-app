@@ -29,7 +29,6 @@ import Services from './components/webPage/Services';
 import ContactUs from './components/webPage/ContactUs';
 import Home from './components/webPage/Home';
 
-
 function App() {
 
   const initialTheme = JSON.parse(localStorage.getItem('theme')) || {
@@ -43,10 +42,11 @@ function App() {
 
   const DarkLightMode = () => {
       const newStyle = myStyle.color === "black"
-      ? {color:"white" , backgroundColor:"black"}
+      ? {color:"white" , backgroundColor:"#042743"}
       : {color:"black" , backgroundColor:"white"}
 
       setMyStyle(newStyle);
+
       setBtnName(newStyle.color==="white" ? "Light Mode" : "Dark Mode")
       // console.log(document.body.style = {myStyle});
 
