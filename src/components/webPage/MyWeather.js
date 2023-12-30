@@ -20,7 +20,7 @@ const MyWeatherApp = (props) =>{
     return (
         <>
             <div className="d-flex justify-content-center align-items-center py-5">
-                <div className="p-3 border border-dark" style={props.borderClr}>
+                <div className={`p-3 border border-${props.borderClr}`}>
                     <div>
                         <h2>Weather App</h2>
                         <input type="text" onChange={(event)=>{

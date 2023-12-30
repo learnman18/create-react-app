@@ -1,33 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 // import Common from "./Common";
 import MyWeatherApp from "./MyWeather";
 import MyToDoList from "./NewToDoApp/ToDoCURD";
 import PracticeOne from "./practices/Practice1";
 
+
 const Home = () => {
 
-    const [borderChng , setBorderChng] = useState({
-        // color:""
-    });
-
-    console.log("bgCOlor " + document.body.style.backgroundColor);
+    const [borderChng , setBorderChng] = useState("dark");
+    const initialVal = document.body.style.color;
+    // console.log("color" + initialVal)
 
     useEffect(()=>{
-        const bgColor = document.body.style;
-        if(bgColor.backgroundColor === "white"){
-            setBorderChng({
-                borderColor:"blue"
-                // color:"red"
-            })
-
-        }else{
-            setBorderChng({
-                // color:"blue"
-                borderColor:"red"
-            })
-        }
-
-    },[])
+        setBorderChng(initialVal === "black" ? "dark" : "light");
+    },[initialVal])
+    
 
     return(
         <>
@@ -37,8 +24,14 @@ const Home = () => {
                 buttonName="Get Started"
                 btnLink = "/services"
             ></Common> */}
-            <MyWeatherApp borderClr={borderChng}></MyWeatherApp>
-            <MyToDoList borderClr={borderChng}></MyToDoList>
+            <div className="row">
+                <div className="col-md-6">
+                    <MyWeatherApp borderClr={borderChng}></MyWeatherApp>
+                </div>
+                <div className="col-md-6">
+                    <MyToDoList borderClr={borderChng}></MyToDoList>
+                </div>
+            </div>
             <PracticeOne></PracticeOne>
         </>
     )
