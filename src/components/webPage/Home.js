@@ -3,6 +3,7 @@ import React, {useEffect, useState} from "react";
 import MyWeatherApp from "./MyWeather";
 import MyToDoList from "./NewToDoApp/ToDoCURD";
 import PracticeOne from "./practices/Practice1";
+import CurrencyExchnage from "./practices/CurrencyExchange";
 
 
 const Home = () => {
@@ -25,11 +26,14 @@ const Home = () => {
                 btnLink = "/services"
             ></Common> */}
             <div className="row">
-                <div className="col-md-6">
+                <div className="col-md-4">
                     <MyWeatherApp borderClr={borderChng}></MyWeatherApp>
                 </div>
-                <div className="col-md-6">
+                <div className="col-md-4">
                     <MyToDoList borderClr={borderChng}></MyToDoList>
+                </div>
+                <div className="col-md-4">
+                    <CurrencyExchnage borderClr={borderChng}/>                    
                 </div>
             </div>
             <PracticeOne></PracticeOne>

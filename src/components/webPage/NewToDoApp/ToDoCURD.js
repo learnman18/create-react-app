@@ -69,8 +69,8 @@ const MyToDoList = (props) => {
     return(
         <React.Fragment>
             <div className="d-flex justify-content-center align-items-center py-5">
-                <div className={`border border-${props.borderClr} p-2`}>
-                    <h5>TO DO APP</h5>
+                <div className={`border border-${props.borderClr} p-3`}>
+                    <h4>To-Do App</h4>
                     <div className="d-flex align-items-center border border-dark">                    
                         <input type="text" className="form-control fixBrdr" value={inputData} onChange={(e)=>
                             {  
