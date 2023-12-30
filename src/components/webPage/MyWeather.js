@@ -22,7 +22,7 @@ const MyWeatherApp = (props) =>{
             <div className="d-flex justify-content-center align-items-center py-5">
                 <div className={`p-3 border border-${props.borderClr}`}>
                     <div>
-                        <h2>Weather App</h2>
+                        <h4>Weather App</h4>
                         <input type="text" onChange={(event)=>{
                             setSearch(event.target.value);
                         }}/>
@@ -30,8 +30,8 @@ const MyWeatherApp = (props) =>{
                         !city ?  <h3>Not Found</h3>  : 
                         (
                             <>
-                                <h3>{search}</h3>
-                                <h4>Degree : {city.temp}</h4>
+                                <h5>{search}</h5>
+                                <h6>Degree : {city.temp}</h6>
                                 <p>Min : {city.temp_min} || max: {city.temp_max}</p>
                             </>
                         )
