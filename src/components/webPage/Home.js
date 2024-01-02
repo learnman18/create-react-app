@@ -4,6 +4,7 @@ import MyWeatherApp from "./MyWeather";
 import MyToDoList from "./NewToDoApp/ToDoCURD";
 import PracticeOne from "./practices/Practice1";
 import CurrencyExchnage from "./practices/CurrencyExchange";
+import CurrencyExchnageTwo from "./practices/CurrencyExchangeTwo";
 
 
 const Home = () => {
@@ -33,7 +34,12 @@ const Home = () => {
                     <MyToDoList borderClr={borderChng}></MyToDoList>
                 </div>
                 <div className="col-md-4">
-                    <CurrencyExchnage borderClr={borderChng}/>                    
+                    <CurrencyExchnageTwo borderClr={borderChng}/>
+                </div>
+            </div>
+            <div className="row">
+                <div className="col-md-4">
+                    <CurrencyExchnage borderClr={borderChng}/>
                 </div>
             </div>
             <PracticeOne></PracticeOne>
