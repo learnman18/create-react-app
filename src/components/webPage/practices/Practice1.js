@@ -1,16 +1,28 @@
 import React, { useState } from "react";
 import "../../../UndoRedo" //we import this file for undo redo or we can also add a CDN for this in index.html
 
-export default function PracticeOne() {
+export default function PracticeOne(props) {
 
     const [text , setText] = useState();
 
     const UpperCase = () => {
-        setText(text.toUpperCase());
+        if(text){
+            setText(text.toUpperCase());
+                props.showAlert("converted to Uppercase" , "success") //these two params or object msg and type we have passed in showAlert function.
+        }else{
+            props.showAlert("Enter some value in textarea" , "danger"); //these two params or object msg and type we have passed in showAlert function.
+            console.log("hit")
+        }
     }
 
     const LowerCase = () => {
-        setText(text.toLowerCase());
+        if(text){
+            setText(text.toLowerCase());
+            props.showAlert("converted to Lowercase" , "success") //these two params or object msg and type we have passed in showAlert function.
+        }else{
+            props.showAlert("Enter some value in textarea" , "danger") //these two params or object msg and type we have passed in showAlert function.
+        }
+
     }
 
     const ClearText = () => {
@@ -23,7 +35,7 @@ export default function PracticeOne() {
     }
 
     return(
-        <div className="container my-5">
+        <div className="container">
             <h3>Enter some text</h3>
             <div>
                 <textarea className="form-control" value={text} placeholder="Leave a comment here" rows="6" 
@@ -32,10 +44,10 @@ export default function PracticeOne() {
                     setText(event.target.value);
                 }}></textarea>
                 <div className="my-3">
-                    <button className="btn btn-primary me-3" onClick={UpperCase}>Upper Case</button>
-                    <button className="btn btn-primary me-3" onClick={LowerCase}>Lower Case</button>
-                    <button className="btn btn-primary me-3" onClick={ClearText}>Clear Text</button>
-                    <button className="btn btn-primary me-3" onClick={RemoveExtraSpaces}>Remove extra Spaces</button>
+                        <button className="btn btn-primary me-3" onClick={UpperCase}>Upper Case</button>
+                        <button className="btn btn-primary me-3" onClick={LowerCase}>Lower Case</button>    
+                        <button className="btn btn-primary me-3" onClick={ClearText}>Clear Text</button>
+                        <button className="btn btn-primary me-3" onClick={RemoveExtraSpaces}>Remove extra Spaces</button>
                 </div>
              </div>
             <div>
