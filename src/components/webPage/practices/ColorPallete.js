@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import '../Menu.css'
 
 export default function ColorPallete(){
 
@@ -14,10 +15,10 @@ export default function ColorPallete(){
         
     return(
         <>
-            <div className="container d-flex pt-5">
-                <div>
+            <div className="container d-flex py-5 mainBox">
+                <div className="me-3" style={{width:"5rem"}}>
                     <h6>background colors</h6>
-                    <div className="card" style={{width: "18rem"}}>
+                    <div className="card colorPallete">
                         <ul class="list-group list-group-flush">
                         <li class="list-group-item" style={{background:"red"}}>Red</li>
                         <li class="list-group-item" style={{background:"grey"}}>Yellow</li>
@@ -25,9 +26,9 @@ export default function ColorPallete(){
                         </ul>
                     </div>
                 </div>
-                <div>
+                <div className="d-flex flex-column justify-content-between">
                     <h6>Select from color pallete</h6>
-                    <div style={{width:"18rem",padding:"3rem",background:bg}}>
+                    <div className="colorBox" style={{width:"15rem",padding:"3rem 1rem 3rem 1rem",background:bg}}>
                         selected color is {bg}
                     </div>
                 </div> 
