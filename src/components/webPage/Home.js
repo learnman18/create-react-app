@@ -6,6 +6,7 @@ import PracticeOne from "./practices/Practice1";
 import CurrencyExchnage from "./practices/CurrencyExchange";
 import CurrencyExchnageTwo from "./practices/CurrencyExchangeTwo";
 import AlertBar from "./practices/Alert";
+import ColorPallete from "./practices/ColorPallete";
 
 
 const Home = () => {
@@ -53,6 +54,9 @@ const Home = () => {
             <div className="row">
                 <div className="col-md-4">
                     <CurrencyExchnage borderClr={borderChng}/>
+                </div>
+                <div className="col-md-6">
+                    <ColorPallete />
                 </div>
             </div>
             <AlertBar alertMsg={alertMsg}></AlertBar>

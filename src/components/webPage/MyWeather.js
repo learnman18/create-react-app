@@ -23,7 +23,7 @@ const MyWeatherApp = (props) =>{
                 <div className={`p-3 border border-${props.borderClr}`}>
                     <div>
                         <h4>Weather App</h4>
-                        <input type="text" onChange={(event)=>{
+                        <input type="text" className="form-control" onChange={(event)=>{
                             setSearch(event.target.value);
                         }}/>
                         {

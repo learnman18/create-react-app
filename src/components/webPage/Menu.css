@@ -163,4 +163,16 @@ i.fa-plus {
   border: none;
 }
 
+/* color pallete */
 
+.colorPallete{
+  width: 5rem
+}
+
+@media (max-width:768px){
+
+  .mainBox{
+    justify-content: center;
+  }
+
+}

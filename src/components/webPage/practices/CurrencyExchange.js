@@ -15,7 +15,7 @@ const CurrencyExchnage = (props) =>{
             const sepTheKey = Object.keys(Exchange.conversion_rates);
             setCurToBeConvert(sepTheKey);
             // console.log("exchnage rate" , sepTheKey[Exchange.conversion_rates])
-            
+        
         }
         FetchCurrency();
     },[baseCurrency])
