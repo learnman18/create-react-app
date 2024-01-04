@@ -30,8 +30,10 @@ export default function PracticeOne(props) {
     }
 
     const RemoveExtraSpaces = () => {
-        let extraSpace = text.split(/[ ]+/); //if we have more than one space
-        setText(extraSpace.join(" "));
+        if(text){
+            let extraSpace = text.split(/[ ]+/); //if we have more than one space
+            setText(extraSpace.join(" "));
+        }
     }
 
     return(
@@ -52,7 +54,7 @@ export default function PracticeOne(props) {
              </div>
             <div>
                 <h4>Preview</h4>
-                <p>{text}</p>
+                <p style={{color:"blue"}}>{text}</p>
             </div>
             <div>
                 <h4>Your Text Summary</h4>
