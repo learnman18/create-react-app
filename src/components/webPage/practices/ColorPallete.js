@@ -5,11 +5,11 @@ export default function ColorPallete(){
 
     const [bg , setBg] = useState();
     
-    let x = document.querySelectorAll(".list-group-item");
-    for(let i=0;i<x.length;i++){
-        x[i].addEventListener("click" , function(){
-            console.log("color picked", x[i].style.background);
-            setBg(x[i].style.background);
+    let allLis = document.querySelectorAll(".list-group-item");
+    for(let i=0;i<allLis.length;i++){
+        allLis[i].addEventListener("click" , function(){
+            console.log("color picked", allLis[i].style.background);
+            setBg(allLis[i].style.background);
         })
     }
         
