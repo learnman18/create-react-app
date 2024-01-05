@@ -21,7 +21,7 @@ const Menu = (props) =>{
                 <nav className="navbar navbar-expand-lg navbar-light bg-light">
                     <div className="container-fluid">
                         <div className="col-8 d-flex align-items-center">
-                            <Link to='/home' className="navbar-brand" style={{color:'inherit !important'}}>Navbar</Link>
+                            <Link to='/' className="navbar-brand" style={{color:'inherit !important'}}>Navbar</Link>
                             <div className="">
                                 <button onClick={()=>{
                                     props.BlackAndWhiteTheme();
@@ -35,7 +35,7 @@ const Menu = (props) =>{
                             <ul className="navbar-nav">
                                 <li className="nav-item" onClick={handleNavItemClick}>
                                     <NavLink className="nav-link" 
-                                    to='/home' >Home</NavLink>
+                                    to='/' >Home</NavLink>
                                 </li>
                                 <li className="nav-item" onClick={handleNavItemClick}>
                                     <NavLink className="nav-link" to='/services' >Services</NavLink>
