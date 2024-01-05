@@ -1,17 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import '../Menu.css'
 
 export default function ColorPallete(){
 
     const [bg , setBg] = useState();
     
-    let allLis = document.querySelectorAll(".list-group-item");
-    for(let i=0;i<allLis.length;i++){
-        allLis[i].addEventListener("click" , function(){
-            console.log("color picked", allLis[i].style.background);
-            setBg(allLis[i].style.background);
-        })
-    }
+    useEffect(()=>{
+        const dispBgClr = ()=> {
+            let allLis = document.querySelectorAll(".list-group-item");
+            for(let i=0;i<allLis.length;i++){
+                allLis[i].addEventListener("click" , function(){
+                    console.log("color picked", allLis[i].style.background);
+                    setBg(allLis[i].style.background);
+                })
+            }
+        }
+        dispBgClr();
+    },[])
+
         
     return(
         <>
