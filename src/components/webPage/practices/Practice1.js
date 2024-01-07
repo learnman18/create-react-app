@@ -59,7 +59,7 @@ export default function PracticeOne(props) {
             <div>
                 <h4>Your Text Summary</h4>
                 {
-                text ? <p> {text.split(/\s+/).join(" ").length} words and {text.length} Characters </p> : 
+                text ? <p> {text.split(/[ ]+/).length} words and {text.length} Characters </p> : 
                 <p> 0 words and 0 Characters</p>
                 }
             </div>
@@ -70,7 +70,7 @@ export default function PracticeOne(props) {
                 </div>
                 <div>
                     <h6>Sentence</h6>
-                    {text ? text.includes('.') ?  <p> {text.match(/\./g).length} </p> : <p> 0 </p> : <p> 0 </p>}
+                    {text ? text.includes('.') ?  <p> {text.split(/\.+/).length - 1} </p> : <p> 0 </p> : <p> 0 </p>}
                     {/* it has 2 condition's in it, {text ? text.includes('.'): <p> 0 </p> and the other one which is
                     nested if condition text.includes('.') ?  <p> {text.match(/\./g).length} </p> : <p> 0 </p>.
                     explain - if text is not empty it will check the nested if condition i.e text.includes('.') and if the 
