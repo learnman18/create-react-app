@@ -54,23 +54,23 @@ export default function PracticeOne(props) {
              </div>
             <div>
                 <h4>Preview</h4>
-                <p style={{color:"blue"}}>{text}</p>
+                <p>{text}</p>
             </div>
             <div>
                 <h4>Your Text Summary</h4>
                 {
-                text ? <p> {text.split(/\s/).length} words and {text.length} Characters </p> : 
+                text ? <p> {text.split(/[ ]+/).length} words and {text.length} Characters </p> : 
                 <p> 0 words and 0 Characters</p>
                 }
             </div>
             <div className="d-flex">
                 <div className="me-3">
                     <h6>Paragraphs</h6>
-                    {text ? text.includes('\n') ?  <p> {text.match(/\n/g).length} </p> : <p> 0 </p> : <p> 0 </p>}
+                    {text ? text.includes('\n') ?  <p> {text.split(/\n+/).length - 1} </p> : <p> 0 </p> : <p> 0 </p>}
                 </div>
                 <div>
                     <h6>Sentence</h6>
-                    {text ? text.includes('.') ?  <p> {text.match(/\./g).length} </p> : <p> 0 </p> : <p> 0 </p>}
+                    {text ? text.includes('.') ?  <p> {text.split(/\.+/).length - 1} </p> : <p> 0 </p> : <p> 0 </p>}
                     {/* it has 2 condition's in it, {text ? text.includes('.'): <p> 0 </p> and the other one which is
                     nested if condition text.includes('.') ?  <p> {text.match(/\./g).length} </p> : <p> 0 </p>.
                     explain - if text is not empty it will check the nested if condition i.e text.includes('.') and if the 
