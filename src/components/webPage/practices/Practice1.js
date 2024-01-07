@@ -54,19 +54,19 @@ export default function PracticeOne(props) {
              </div>
             <div>
                 <h4>Preview</h4>
-                <p style={{color:"blue"}}>{text}</p>
+                <p>{text}</p>
             </div>
             <div>
                 <h4>Your Text Summary</h4>
                 {
-                text ? <p> {text.split(/\s/).length} words and {text.length} Characters </p> : 
+                text ? <p> {text.split(/\s+/).join(" ").length} words and {text.length} Characters </p> : 
                 <p> 0 words and 0 Characters</p>
                 }
             </div>
             <div className="d-flex">
                 <div className="me-3">
                     <h6>Paragraphs</h6>
-                    {text ? text.includes('\n') ?  <p> {text.match(/\n/g).length} </p> : <p> 0 </p> : <p> 0 </p>}
+                    {text ? text.includes('\n') ?  <p> {text.split(/\n+/).length - 1} </p> : <p> 0 </p> : <p> 0 </p>}
                 </div>
                 <div>
                     <h6>Sentence</h6>
