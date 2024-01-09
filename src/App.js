@@ -3,7 +3,7 @@ import React, {useEffect,useState} from 'react';
 // import { ReactDOM } from 'react';
 import './App.css';
 // import SearchImg from './components/SearchImg/Search';
-import Menu from './components/webPage/Menu'
+import Menu from './components/webPage/Header/Menu'
 // import AxiosExample from './components/axios/AxiosExample';
 // import TheApp from './components/notes/TheApp';
 // import ExampleTwoUseEfct from './components/useEfect/ExampleTwo';
@@ -35,6 +35,7 @@ import CurrencyExchnage from "./components/webPage/practices/CurrencyExchange";
 import CurrencyExchnageTwo from "./components/webPage/practices/CurrencyExchangeTwo";
 import AlertBar from "./components/webPage/practices/Alert";
 import ColorPallete from "./components/webPage/practices/ColorPallete";
+import Footer from './components/webPage/Footer/Footer';
 
 function App() {
 
@@ -133,6 +134,7 @@ useEffect(()=>{
           <Route path='contact' element={<ContactUs></ContactUs>}></Route>
           {/* <Route path="/" element={<Navigate replace to="/home" />} /> */}
         </Routes>
+        <Footer></Footer>
     </>
   );
 }

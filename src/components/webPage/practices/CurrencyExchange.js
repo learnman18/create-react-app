@@ -34,7 +34,7 @@ const CurrencyExchnage = (props) =>{
                             Currency Exchange
                         </h4>
                         <input type="text" className="form-control mb-2" placeholder="enter the base currency" value={baseCurrency}/>
-                        <select class="form-select" aria-label="Default select example" onChange={selectOptions}>
+                        <select className="form-select" aria-label="Default select example" onChange={selectOptions}>
                             <option>Open this select menu</option>
                             {
                                 /* if curToBeConvert has some value it wil display or it will display null, you will get error on the

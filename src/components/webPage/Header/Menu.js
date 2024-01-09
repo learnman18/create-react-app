@@ -1,8 +1,8 @@
 import React, {useState} from "react";
-import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css'
-import '../../../node_modules/bootstrap/dist/js/bootstrap.bundle.js'
+import '../../../../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import '../../../../node_modules/bootstrap/dist/js/bootstrap.bundle.js'
 import { NavLink, Link, Outlet } from "react-router-dom";
-import './Menu.css';
+import '../Header/Menu.css'
 
 
 const Menu = (props) =>{
