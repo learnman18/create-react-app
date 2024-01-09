@@ -11,7 +11,7 @@ const Services = () => {
                     <div className="row mx-4">
                         {
                             MyCoursesData.map((currentCourse , i)=>{
-                                console.log(currentCourse , i);
+                                // console.log(currentCourse , i);
                                 return <Cards id={i} key={i} courseBtn={currentCourse.btn}
                                  courseDesc={currentCourse.description} courseImg={currentCourse.imgsrc}
                                  courseName={currentCourse.name}

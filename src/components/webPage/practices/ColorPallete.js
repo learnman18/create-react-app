@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import '../Menu.css'
+import '../Header/Menu.css'
 
 export default function ColorPallete(){
 
@@ -25,10 +25,10 @@ export default function ColorPallete(){
                 <div className="me-3" style={{width:"5rem"}}>
                     <h6>background colors</h6>
                     <div className="card colorPallete">
-                        <ul class="list-group list-group-flush">
-                        <li class="list-group-item" style={{background:"red"}}>Red</li>
-                        <li class="list-group-item" style={{background:"grey"}}>Yellow</li>
-                        <li class="list-group-item" style={{background:"purple"}}>White</li>
+                        <ul className="list-group list-group-flush">
+                        <li className="list-group-item" style={{background:"red"}}>Red</li>
+                        <li className="list-group-item" style={{background:"grey"}}>Yellow</li>
+                        <li className="list-group-item" style={{background:"purple"}}>White</li>
                         </ul>
                     </div>
                 </div>
