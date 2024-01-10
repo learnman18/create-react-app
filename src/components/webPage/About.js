@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Common from "./Common";
+// import Common from "./Common";
 import News from "./ClassComp/News";
 
 class About extends Component {
@@ -12,12 +12,12 @@ class About extends Component {
                         <News></News>
                     </div>
                 </div>
-                <Common
+                {/* <Common
                     title="This is About page"
                     desc="We are team of talented designers making websites"
                     buttonName="Get Started"
                     btnLink = "/services"
-                ></Common>
+                ></Common> */}
             </>
         )
     }
