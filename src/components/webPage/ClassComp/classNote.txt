@@ -1,0 +1,37 @@
+/*
+
+    after increment if we click on decrement for the first time it will increment the number instead of decreasing it.
+
+    increment = () => {
+        this.setState({page: this.state +1})
+            console.log("incerement" , this.state.page) 
+    }
+    decrement = () => {
+        this.setState({page: this.state - 1})
+            console.log("incerement" , this.state.page) 
+    }
+
+    The issue you're facing might be related to the asynchronous nature of setState in React. 
+    When you call setState, React does not immediately update the state. Instead, it schedules an update, 
+    and the state may not be updated right away.
+
+    Here's an updated version of your code that addresses this issue by using the callback form of setState,
+    which ensures that the state is updated based on the previous state:
+
+     increment = () => {
+        this.setState((prevState)=> ({
+            page: prevState.page +1
+        }),() => {
+            console.log("incerement" , this.state.page)
+        });
+    }
+  
+    decrement = () => {
+        this.setState((prevState) => ({
+        page: prevState.page - 1,
+        }), () => {
+        console.log("decrement ", this.state.page);
+        });
+    };
+
+    */
