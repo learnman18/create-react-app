@@ -36,6 +36,7 @@ import CurrencyExchnageTwo from "./components/webPage/practices/CurrencyExchange
 import AlertBar from "./components/webPage/practices/Alert";
 import ColorPallete from "./components/webPage/practices/ColorPallete";
 import Footer from './components/webPage/Footer/Footer';
+import News from './components/webPage/ClassComp/News';
 
 function App() {
 
@@ -129,7 +130,14 @@ useEffect(()=>{
             <PracticeOne showAlert={showAlert}></PracticeOne>
             </>
           }></Route>
-          <Route path='about' element={<About></About>}></Route>
+          <Route path='about' element={<About></About>}>
+            <Route key="general" path="" element={<News category="general" pageSize="9"></News>}></Route>
+            <Route key="business" path="business" element={<News category="business" pageSize="9"></News>}></Route>
+            <Route path="science" key="science" element={<News pageSize="9" category="science"></News>}></Route>
+            <Route path="sports" key="sports" element={<News pageSize="9" category="sports"></News>}></Route>
+            <Route path="health" key="health" element={<News pageSize="9" category="health"></News>}></Route>
+            <Route path="technology" key="technology" element={<News pageSize="9" category="technology"></News>}></Route>
+          </Route>
           <Route path='services' element={<Services></Services>}></Route>
           <Route path='contact' element={<ContactUs></ContactUs>}></Route>
           {/* <Route path="/" element={<Navigate replace to="/home" />} /> */}

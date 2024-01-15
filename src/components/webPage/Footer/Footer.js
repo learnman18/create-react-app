@@ -9,7 +9,7 @@ export default function Footer () {
 
     return(
         <React.Fragment>
-            <div className="b-example-divider"></div>
+            {/* <div className="b-example-divider"></div> */}
             <div className="container">
                 <footer className="py-3 my-4">
                     <ul className="nav justify-content-center border-bottom pb-3 mb-3">
