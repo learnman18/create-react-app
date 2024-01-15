@@ -4,13 +4,18 @@ import React, { Component } from "react";
 // import NewsCategory from "./ClassComp/NewsCategory";
 import { Outlet, NavLink } from "react-router-dom";
 
+
+//this About and News component both of them are getting called from App.js , all the Newss categories created are child comp of about.js
+
 class About extends Component {
 
     render(){
         return(
             <>
                 {/* <NewsCategory></NewsCategory> */}
-                <ul className="nav nav-underline">
+                     
+                <div className="container-fluid">
+                    <ul className="nav nav-underline">
                         <li className="nav-item">
                             <NavLink className="nav-link" to="">General</NavLink>
                         </li>
@@ -29,16 +34,7 @@ class About extends Component {
                         <li className="nav-item">
                             <NavLink className="nav-link" to="technology">Technology</NavLink>
                         </li>
-                    </ul>  
-                <div className="container-fluid">
-                    {/* <Routes>
-                        <Route path="" key="general" element={<News pageSize="9" category="general"></News>}></Route>
-                        <Route path="/business" key="business" element={<News pageSize={9} category="business"></News>}></Route>
-                        <Route path="science" key="science" element={<News pageSize="9" category="science"></News>}></Route>
-                        <Route path="sports" key="sports" element={<News pageSize="9" category="sports"></News>}></Route>
-                        <Route path="health" key="health" element={<News pageSize="9" category="health"></News>}></Route>
-                        <Route path="technology" key="technology" element={<News pageSize="9" category="technology"></News>}></Route>
-                    </Routes> */}
+                    </ul> 
                     <Outlet></Outlet>
                 </div>
 

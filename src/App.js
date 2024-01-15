@@ -131,12 +131,12 @@ useEffect(()=>{
             </>
           }></Route>
           <Route path='about' element={<About></About>}>
-            <Route key="general" path="" element={<News category="general" pageSize="9"></News>}></Route>
-            <Route key="business" path="business" element={<News category="business" pageSize="9"></News>}></Route>
-            <Route path="science" key="science" element={<News pageSize="9" category="science"></News>}></Route>
-            <Route path="sports" key="sports" element={<News pageSize="9" category="sports"></News>}></Route>
-            <Route path="health" key="health" element={<News pageSize="9" category="health"></News>}></Route>
-            <Route path="technology" key="technology" element={<News pageSize="9" category="technology"></News>}></Route>
+            <Route path="" element={<News category="general" pageSize="9"></News>}></Route>
+            <Route path="business" element={<News category="business" pageSize="9"></News>}></Route>
+            <Route path="science" element={<News pageSize="9" category="science"></News>}></Route>
+            <Route path="sports" element={<News pageSize="9" category="sports"></News>}></Route>
+            <Route path="health" element={<News pageSize="9" category="health"></News>}></Route>
+            <Route path="technology" element={<News pageSize="9" category="technology"></News>}></Route>
           </Route>
           <Route path='services' element={<Services></Services>}></Route>
           <Route path='contact' element={<ContactUs></ContactUs>}></Route>
