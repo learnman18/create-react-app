@@ -38,9 +38,9 @@ export default function Calulator({borderClr}){
         const Backspace = () => {
             setInputVal((prevState)=>{
                 console.log("previous state" , prevState);
-                let updateTheState = inputVal.pop();
+                let updateTheState = prevState.slice(0,-1);
                 console.log("updated state" , updateTheState);
-                return [...prevState , updateTheState];
+                return updateTheState;
             })
         }
     
