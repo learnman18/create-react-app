@@ -1,0 +1,44 @@
+
+The issue I was facing - 
+
+when I'm clicking on any of those li's, on the first click it was getting called 1 time then
+on 2nd click 2 times on 3rd click 4 times and on 4th click 8 times.
+
+solution - 
+
+The issue you're facing is likely due to the fact that you are adding event listeners inside
+ the useEffect without cleaning up the previous listeners. As a result, every time the 
+ component re-renders, you are adding more event listeners to the existing ones.
+
+To avoid this issue, you should clean up the previous event listeners before adding new ones. 
+You can do this by returning a cleanup function from the useEffect.
+
+export default function Calulator({borderClr}){
+
+const [inputVal , setInputVal] = useState([]);
+    const list = document.querySelectorAll(".calcList");
+
+    useEffect(()=>{
+        list.forEach((cureentLists)=>{
+            cureentLists.addEventListener("click" , (event)=>{
+                console.log("number of times clicked " , event.target.innerText);
+                setInputVal((prevVal)=>{
+                    return [...prevVal , event.target.innerText]
+                });
+            })
+        })
+    },[list])
+
+    return(
+        <div>
+            <ul className="list-group list-group-horizontal">
+                <li className="calcList list-group-item">%</li>
+                <li className="calcList list-group-item">CE</li>
+                <li className="calcList list-group-item">C</li>
+                <li className="calcList list-group-item">✖️</li>
+            </ul>
+        </div>
+</>
+    )
+
+}

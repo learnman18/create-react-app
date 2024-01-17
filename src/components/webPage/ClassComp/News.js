@@ -18,11 +18,10 @@ class News extends Component{
         }
     }
 
-
     NewsInfo = async () => {
         console.log("cdm");
         // let url = "";
-        let url = `https://newsapi.org/v2/top-headlines?country=in&category=${this.props.category}&apiKey=356f95ea33764cdbade0c4f3f02a9764&page=1&pageSize=${this.props.pageSize}`;
+        let url = `https://newsapi.org/v2/top-headlines?country=in&category=${this.props.category}&apiKey=356f95ea33764cdbade0c4f3f02a9764&page=${this.state.page}&pageSize=${this.props.pageSize}`;
         this.setState({loader:true})
         try {
             let response = await fetch(url);
@@ -55,34 +54,29 @@ class News extends Component{
        
 //please refer classNote.txt for info on increment/decremnt settate
 
+/*The issue you are facing might be due to the asynchronous nature of this.setState in React. 
+When you use this.setState to update the state and then immediately try to access the updated state, 
+React doesn't guarantee that the state will be updated synchronously.
+To address this, you can use the callback form of this.setState, which accepts a function that 
+receives the previous state as an argument and returns the new state. 
+This ensures that you are working with the most up-to-date state.*/
+
     increment = async () => {
-            // let url = ""
-            let url = `https://newsapi.org/v2/top-headlines?country=in&category=${this.props.category}&apiKey=356f95ea33764cdbade0c4f3f02a9764&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
-            let response = await fetch(url);
-            let result = await response.json();
-            // console.log(result)
-            console.log("Increment")
-            this.setState({
-                articles: result.articles,
-                totalResult : result.totalResults,
-                page : this.state.page + 1
-            })
-            // console.log("increment" , this.state.page)
+        this.setState((prevState)=> ({
+            page: prevState.page +1
+        }),() => {
+            // Callback function that runs after the state has been updated
+            this.NewsInfo();
+        });
     }
   
     decrement = async () => {
-        // let url = ""
-        let url = `https://newsapi.org/v2/top-headlines?country=in&category=${this.props.category}&apiKey=356f95ea33764cdbade0c4f3f02a9764&page=${this.state.page - 1}&pageSize=${this.props.pageSize}`;
-        let response = await fetch(url);
-        let result = await response.json();
-        // console.log(result)
-        console.log("Decremnt")
-        this.setState({
-            articles: result.articles,
-            totalResult : result.totalResults,
-            page : this.state.page - 1
-        })
-        console.log("decremnt" , this.state.page)
+            this.setState((prevState) => ({
+            page: prevState.page - 1,
+            }), () => {
+                // Callback function that runs after the state has been updated
+            this.NewsInfo();
+            });
     }
 
 
