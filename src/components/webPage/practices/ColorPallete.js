@@ -7,7 +7,7 @@ export default function ColorPallete(){
     
     useEffect(()=>{
         const dispBgClr = ()=> {
-            let allLis = document.querySelectorAll(".list-group-item");
+            let allLis = document.querySelectorAll(".bgLi");
             for(let i=0;i<allLis.length;i++){
                 allLis[i].addEventListener("click" , function(){
                     console.log("color picked", allLis[i].style.background);
@@ -26,9 +26,9 @@ export default function ColorPallete(){
                     <h6>background colors</h6>
                     <div className="card colorPallete">
                         <ul className="list-group list-group-flush">
-                        <li className="list-group-item" style={{background:"red"}}>Red</li>
-                        <li className="list-group-item" style={{background:"grey"}}>Yellow</li>
-                        <li className="list-group-item" style={{background:"purple"}}>White</li>
+                        <li className="bgLi list-group-item" style={{background:"red"}}>Red</li>
+                        <li className="bgLi list-group-item" style={{background:"grey"}}>Yellow</li>
+                        <li className="bgLi list-group-item" style={{background:"purple"}}>White</li>
                         </ul>
                     </div>
                 </div>

@@ -1,0 +1,27 @@
+.mainCls ul li {
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    opacity: 0.7;
+}
+.mainCls ul li:hover{
+    opacity: 1;
+}
+
+.mainCls textarea{
+    width: 100%;
+    border-top: 0;
+}
+.mainCls .preview {
+    margin-bottom: 0;
+    /* background: white; */
+    height: 80px;
+    width: 100%;
+}
+
+.mainCls #multiply {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 23px;
+}

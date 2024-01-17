@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 // import Common from "./Common";
-// import News from "./ClassComp/News";
 // import NewsCategory from "./ClassComp/NewsCategory";
 import { Outlet, NavLink } from "react-router-dom";
 
@@ -34,7 +33,7 @@ class About extends Component {
                         <li className="nav-item">
                             <NavLink className="nav-link" to="technology">Technology</NavLink>
                         </li>
-                    </ul> 
+                    </ul>
                     <Outlet></Outlet>
                 </div>
 

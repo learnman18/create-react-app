@@ -9,7 +9,7 @@ const CurrencyExchnage = (props) =>{
 
     useEffect(()=>{
         const FetchCurrency = ()=>{
-            console.log("RESULT " , Exchange);
+            // console.log("RESULT " , Exchange);
             setBaseCurrency(Exchange.base_code);
             // console.log(Object.keys(Exchange.conversion_rates));
             const sepTheKey = Object.keys(Exchange.conversion_rates);

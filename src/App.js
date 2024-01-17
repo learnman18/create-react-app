@@ -37,6 +37,7 @@ import AlertBar from "./components/webPage/practices/Alert";
 import ColorPallete from "./components/webPage/practices/ColorPallete";
 import Footer from './components/webPage/Footer/Footer';
 import News from './components/webPage/ClassComp/News';
+import Calulator from './components/webPage/calculator/Calculator';
 
 function App() {
 
@@ -128,6 +129,14 @@ useEffect(()=>{
             </div>
             <AlertBar alertMsg={alertMsg}></AlertBar>
             <PracticeOne showAlert={showAlert}></PracticeOne>
+            <div className="container">
+              <div className="row">
+                <div className="col-md-6">
+                  <Calulator borderClr={borderChng}></Calulator>
+                </div>  
+              </div>
+            </div>
+            
             </>
           }></Route>
           <Route path='about' element={<About></About>}>
