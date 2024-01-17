@@ -17,7 +17,6 @@ export default function Calulator({borderClr}){
             setInputVal((prevState)=>{
                 return [...prevState , event.target.innerText]
             })
-            removeEvents();
         }
 
         list.forEach((currentLists)=>{
@@ -27,21 +26,24 @@ export default function Calulator({borderClr}){
         // Cleanup previous event listeners
         /*this is to cleanup the already clicked event listener before we add any more listener into it
         */
-        const removeEvents =  () => {
+        return () => {
             console.log("event removed")
             list.forEach((currentLists)=>{
                 currentLists.removeEventListener("click" , iterateListItem);
             })
         }
+
     },[list])
 
-    const Backspace = () => {
-        setInputVal((prevState)=>{
-            let updateTheState = inputVal.pop();
-            return [...prevState , updateTheState];
-        })
-    }
-
+        const Backspace = () => {
+            setInputVal((prevState)=>{
+                console.log("previous state" , prevState);
+                let updateTheState = inputVal.pop();
+                console.log("updated state" , updateTheState);
+                return [...prevState , updateTheState];
+            })
+        }
+    
 
     return(
         <>
