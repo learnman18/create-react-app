@@ -17,6 +17,7 @@ export default function Calulator({borderClr}){
             setInputVal((prevState)=>{
                 return [...prevState , event.target.innerText]
             })
+            removeEvents();
         }
 
         list.forEach((currentLists)=>{
@@ -26,7 +27,7 @@ export default function Calulator({borderClr}){
         // Cleanup previous event listeners
         /*this is to cleanup the already clicked event listener before we add any more listener into it
         */
-        return () => {
+        const removeEvents =  () => {
             console.log("event removed")
             list.forEach((currentLists)=>{
                 currentLists.removeEventListener("click" , iterateListItem);
