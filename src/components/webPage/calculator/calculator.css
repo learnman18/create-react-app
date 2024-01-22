@@ -15,9 +15,10 @@
 }
 .mainCls .preview {
     margin-bottom: 0;
-    /* background: white; */
+    background: white;
     height: 80px;
     width: 100%;
+    color: black;
 }
 
 .mainCls #multiply {
