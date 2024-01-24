@@ -43,3 +43,12 @@
   color: white;
   background-color: black;
 }
+
+/* calculator ccontainer alignment*/
+@media(max-width:768px){
+  .container.calculator{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
