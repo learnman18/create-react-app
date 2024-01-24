@@ -79,15 +79,15 @@ const [alertMsg , setAlertMsg] = useState(); //alert msg object here;
 
 /* Theme script ends here */
 
-/* Border color set */
-useEffect(()=>{
-  if(myStyle.color === "black"){
-    setBorderChng("dark")
-  }else{
-    setBorderChng("white")
-  }
-},[myStyle])
-/* Border color set */
+  /* Border color set */
+  useEffect(()=>{
+    if(myStyle.color === "black"){
+      setBorderChng("dark")
+    }else{
+      setBorderChng("white")
+    }
+  },[myStyle])
+  /* Border color set */
 
 //showAlert we are passint it to child comps i.e practic1 and AlertBar comps.
   const showAlert = (textMessage , type) => {
@@ -129,10 +129,10 @@ useEffect(()=>{
             </div>
             <AlertBar alertMsg={alertMsg}></AlertBar>
             <PracticeOne showAlert={showAlert}></PracticeOne>
-            <div className="container">
+            <div className="container calculator">
               <div className="row">
                 <div className="col-md-6">
-                  <Calulator borderClr={borderChng}></Calulator>
+                  <Calulator borderClr={borderChng} bgClr={myStyle}></Calulator>
                 </div>  
               </div>
             </div>

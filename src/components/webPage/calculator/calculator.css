@@ -5,6 +5,12 @@
     cursor: pointer;
     opacity: 0.7;
 }
+
+.bgDefault {
+    color: white;
+    background: black;
+}
+
 .mainCls ul li:hover{
     opacity: 1;
 }
@@ -15,10 +21,11 @@
 }
 .mainCls .preview {
     margin-bottom: 0;
-    background: white;
+    /* background: white; */
     height: 80px;
     width: 100%;
-    color: black;
+    /* color: black; */
+    font-size: 30px;
 }
 
 .mainCls #multiply {
