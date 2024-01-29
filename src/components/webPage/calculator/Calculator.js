@@ -88,75 +88,133 @@ export default function Calulator({borderClr , bgClr}){
     }
 
 
+    // const Conclude = (event) => {
+    //     setInputVal((prevState)=>{
+    //         console.log("conclude" , prevState);
+    //         return [...prevState , event.target.innerText];
+    //     })
+
+    //     /*when we want to check the index of array values by looping thorugh it and return the first element that passes a test*/
+    //     let regExOperator = /^[\/+\-=.*]+$/;
+    //     let indexOfMultiply = inputVal.findIndex(val => regExOperator.test(val));
+    //     console.log("indexOfMultiply" , indexOfMultiply)
+
+    //     // Check if regExOperator exists in the array
+    //     if (indexOfMultiply !== -1) {
+    //         // Split the array into two parts
+
+    //         const partBeforeMultiply = inputVal.slice(0, indexOfMultiply); // Elements before "*"
+    //         const partAfterMultiply = inputVal.slice(indexOfMultiply + 1); // Elements after "*"
+        
+    //         console.log("original array" , inputVal);
+
+    //         let remSpecialChar = partBeforeMultiply.join('').replace(/[^0-9]/g, ''); //regex is if any char is entered apart from digits will be replaced with no space ''(2nd param of replace) or we can say filtering out special chars.
+    //         console.log("after replacing" , remSpecialChar);
+    //         let toNumArray = remSpecialChar.split('').map(Number);
+    //         console.log("split it and typecasted to number", toNumArray);
+    //         let calculate = toNumArray.reduce(function (accum, digit) {
+    //             return (accum * 10) + digit
+    //         }, 0);
+
+
+    //         let convertToNum = partAfterMultiply.join('').replace(/[^0-9]/g, '')
+    //         let toNumOP = convertToNum.split('').map(Number)
+    //         let caculateOP = toNumOP.reduce(function (accum, digit) {
+    //             return (accum * 10) + digit
+    //         }, 0);
+    //         console.log("calculate" , calculate)
+    //         console.log("current value output" , caculateOP);
+
+    //         if(inputVal.includes("*")){
+    //             let multiplicationResult = calculate * caculateOP;
+    //             console.log("Multiplication" , multiplicationResult)
+    //             setOutput(multiplicationResult)
+    //         }else if(inputVal.includes("+")){
+    //             let additionResult = calculate + caculateOP;
+    //             console.log("Addition" , additionResult)
+    //             setOutput(additionResult)
+    //         }else if(inputVal.includes("/")){
+    //             let additionResult = calculate / caculateOP;
+    //             console.log("divison" , additionResult)
+    //             setOutput(additionResult)
+    //         }else if(inputVal.includes("-")){
+    //             let additionResult = calculate - caculateOP;
+    //             console.log("subtraction" , additionResult)
+    //             setOutput(additionResult)
+    //         }
+
+    //         // Now you have two separate arrays
+    //         console.log("Part before *:", partBeforeMultiply);
+    //         console.log("Part after *:", partAfterMultiply);
+    //     } else {
+    //         // If "*" is not found, handle accordingly
+    //         console.log("No * operator found in the array");
+    //     }
+
+        
+    // }
+
     const Conclude = (event) => {
-        setInputVal((prevState)=>{
-            console.log("conclude" , prevState);
-            return [...prevState , event.target.innerText];
-        })
-
-        /*when we want to check the index of array values by looping thorugh it and return the first element that passes a test*/
-        let regExOperator = /^[\/+\-=.*]+$/;
-        let indexOfMultiply = inputVal.findIndex(val => regExOperator.test(val));
-        
-        // Check if regExOperator exists in the array
-        if (indexOfMultiply !== -1) {
-            // Split the array into two parts
-            const partBeforeMultiply = inputVal.slice(0, indexOfMultiply); // Elements before "*"
-            const partAfterMultiply = inputVal.slice(indexOfMultiply + 1); // Elements after "*"
-        
-
-            console.log("original array" , inputVal);
-
-            let remSpecialChar = partBeforeMultiply.join('').replace(/[^0-9]/g, ''); //regex is if any char is entered apart from digits will be replaced with no space ''(2nd param of replace) or we can say filtering out special chars.
-            console.log("after replacing" , remSpecialChar);
-            let toNumArray = remSpecialChar.split('').map(Number);
-            console.log("split it and typecasted to number", toNumArray);
-            let calculate = toNumArray.reduce(function (accum, digit) {
-                return (accum * 10) + digit
-            }, 0);
-
-
-            let convertToNum = partAfterMultiply.join('').replace(/[^0-9]/g, '')
-            let toNumOP = convertToNum.split('').map(Number)
-            let caculateOP = toNumOP.reduce(function (accum, digit) {
-                return (accum * 10) + digit
-            }, 0);
-            console.log("calculate" , calculate)
-            console.log("current value output" , caculateOP);
-
-            if(inputVal.includes("*")){
-                let multiplicationResult = calculate * caculateOP;
-                console.log("Multiplication" , multiplicationResult)
-                setOutput(multiplicationResult)
-            }else if(inputVal.includes("+")){
-                let additionResult = calculate + caculateOP;
-                console.log("Addition" , additionResult)
-                setOutput(additionResult)
-            }else if(inputVal.includes("/")){
-                let additionResult = calculate / caculateOP;
-                console.log("divison" , additionResult)
-                setOutput(additionResult)
-            }else if(inputVal.includes("-")){
-                let additionResult = calculate - caculateOP;
-                console.log("subtraction" , additionResult)
-                setOutput(additionResult)
-            }
-
-
-            // Now you have two separate arrays
-            console.log("Part before *:", partBeforeMultiply);
-            console.log("Part after *:", partAfterMultiply);
-        } else {
-            // If "*" is not found, handle accordingly
-            console.log("No * operator found in the array");
+        setInputVal((prevState) => [...prevState, event.target.innerText]);
+      
+        const regExOperator = /^[\/+\-=.*]+$/;
+        let operators = [];
+        let operands = [];
+        let currentNumber = '';
+      
+        // Iterate through inputVal to separate operators and operands
+        for (let i = 0; i < inputVal.length; i++) {
+          const char = inputVal[i];
+          console.log("char" , char);
+          if (regExOperator.test(char)) {
+            //it checks if we have entered any speical char if it has it will push the char in operands, and if it has number first it will go to the else part
+            // If we encounter an operator, add the currentNumber to operands
+            operands.push(currentNumber.replace(/[^0-9]/g, ''));
+            currentNumber = '';
+            operators.push(char);
+          } else {
+            // If it's a digit, build the currentNumber
+            currentNumber = currentNumber +  char;
+          }
         }
-
-
-        
-    }
+      
+        // Add the last number to operands
+        operands.push(currentNumber.replace(/[^0-9]/g, ''));
+      
+        console.log("Operators:", operators);
+        console.log("Operands:", operands);
+      
+        // Perform calculations based on operators and operands
+        let result = operands[0];
+      
+        for (let i = 0; i < operators.length; i++) {
+          const operator = operators[i];
+          const operand = operands[i + 1];
+      
+          switch (operator) {
+            case '*':
+              result *= operand;
+              break;
+            case '+':
+              result += operand;
+              break;
+            case '/':
+              result /= operand;
+              break;
+            case '-':
+              result -= operand;
+              break;
+            default:
+              break;
+          }
+        }
+      
+        setOutput(result);
+      };
+      
+      
 
     
-
     return(
         <>
             <div className="mainCls py-5" style={{width:"20rem"}}>
