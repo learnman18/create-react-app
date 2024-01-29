@@ -108,7 +108,7 @@ const [alertMsg , setAlertMsg] = useState(); //alert msg object here;
       <Routes>
           <Route exact path='/' element={
             <>
-              <div className="row">
+              <div className="row gx-0">
                 <div className="col-md-4">
                     <MyWeatherApp borderClr={borderChng}></MyWeatherApp>
                 </div>
@@ -119,7 +119,7 @@ const [alertMsg , setAlertMsg] = useState(); //alert msg object here;
                     <CurrencyExchnageTwo borderClr={borderChng}/>
                 </div>
             </div>
-            <div className="row">
+            <div className="row gx-0">
                 <div className="col-md-4">
                     <CurrencyExchnage borderClr={borderChng}/>
                 </div>
