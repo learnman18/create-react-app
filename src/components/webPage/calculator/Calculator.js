@@ -35,6 +35,7 @@ export default function Calulator({borderClr , bgClr}){
             setOutput((prevVal)=>{
                 return [...prevVal , event.target.innerText]
             })
+
         }
 
         list.forEach((currentLists)=>{
@@ -169,7 +170,13 @@ export default function Calulator({borderClr , bgClr}){
           if (regExOperator.test(char)) {
             //it checks if we have entered any speical char if it has it will push the char in operands, and if it has number first it will go to the else part
             // If we encounter an operator, add the currentNumber to operands
-            operands.push(currentNumber.replace(/[^0-9]/g, ''));
+
+            let convertToNum = currentNumber.replace(/[^0-9]/g, '')
+            let toNumOP = convertToNum.split('').map(Number)
+            let caculateOP = toNumOP.reduce(function (accum, digit) {
+                return (accum * 10) + digit
+            }, 0);
+            operands.push(caculateOP);
             currentNumber = '';
             operators.push(char);
           } else {
@@ -179,7 +186,12 @@ export default function Calulator({borderClr , bgClr}){
         }
       
         // Add the last number to operands
-        operands.push(currentNumber.replace(/[^0-9]/g, ''));
+        let convertToNum = currentNumber.replace(/[^0-9]/g, '')
+            let toNumOP = convertToNum.split('').map(Number)
+            let caculateOP = toNumOP.reduce(function (accum, digit) {
+                return (accum * 10) + digit
+            }, 0);
+        operands.push(caculateOP);
       
         console.log("Operators:", operators);
         console.log("Operands:", operands);
@@ -211,10 +223,9 @@ export default function Calulator({borderClr , bgClr}){
       
         setOutput(result);
       };
-      
-      
 
-    
+
+      
     return(
         <>
             <div className="mainCls py-5" style={{width:"20rem"}}>
@@ -222,7 +233,7 @@ export default function Calulator({borderClr , bgClr}){
                     {/* <input className={`preview border border-${borderClr}`} type="text"
                      value={inputVal && inputVal.join('')} readOnly/> */}
                      <p style={{marginBottom: 0}}
-                     value={inputVal && inputVal.join('')}>{inputVal && inputVal.join('').replace(/\*+/g, "*").replace(/=+/g, "=").replace(/\++/g, "+")}</p>
+                     value={inputVal && inputVal.join('')}>{inputVal && inputVal.join('').replace(/\*+/g, "*").replace(/=+/g, "=").replace(/\++/g, "+").replace(/\-+/g, "-").replace(/\/+/g, "/")}</p>
                      <p className="preview" value={output && output}>{output && output}</p>
                 </div>
                 <div>
