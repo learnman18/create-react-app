@@ -12,26 +12,26 @@ class About extends Component {
         return(
             <>
                 {/* <NewsCategory></NewsCategory> */}
-                     
+                 <h3 className="py-3 text-center fw-light">Pick the category you want to read</h3>    
                 <div className="container-fluid">
-                    <ul className="nav nav-underline">
+                    <ul className="nav nav-underline newsCategory">
                         <li className="nav-item">
-                            <NavLink className="nav-link" to="">General</NavLink>
+                            <NavLink className="nav-link" to="general" style={{color:"unset"}}>General</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link" to="business">Business</NavLink>
+                            <NavLink className="nav-link" to="business" style={{color:"unset"}}>Business</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link" to="health">Health</NavLink>
+                            <NavLink className="nav-link" to="health" style={{color:"unset"}}>Health</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link" to="science">Science</NavLink>
+                            <NavLink className="nav-link" to="science" style={{color:"unset"}}>Science</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link" to="sports">Sports</NavLink>
+                            <NavLink className="nav-link" to="sports" style={{color:"unset"}}>Sports</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link" to="technology">Technology</NavLink>
+                            <NavLink className="nav-link" to="technology" style={{color:"unset"}}>Technology</NavLink>
                         </li>
                     </ul>
                     <Outlet></Outlet>

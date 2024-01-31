@@ -44,6 +44,11 @@
   background-color: black;
 }
 
+/* About page News navabr*/
+.nav-underline .nav-link.active, .nav-underline .show>.nav-link{
+  font-weight: 400 !important;
+}
+
 /* calculator ccontainer alignment*/
 @media(max-width:768px){
   .container.calculator{
