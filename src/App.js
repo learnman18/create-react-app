@@ -140,7 +140,8 @@ const [alertMsg , setAlertMsg] = useState(); //alert msg object here;
             </>
           }></Route>
           <Route path='about' element={<About></About>}>
-            <Route path="" element={<News category="general" pageSize="9"></News>}></Route>
+            <Route path='' element={<News></News>}></Route>
+            <Route path="general" element={<News category="general" pageSize="9"></News>}></Route>
             <Route path="business" element={<News category="business" pageSize="9"></News>}></Route>
             <Route path="science" element={<News pageSize="9" category="science"></News>}></Route>
             <Route path="sports" element={<News pageSize="9" category="sports"></News>}></Route>

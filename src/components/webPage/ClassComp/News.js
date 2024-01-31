@@ -19,7 +19,6 @@ class News extends Component{
     }
 
     NewsInfo = async () => {
-        console.log("cdm");
         // let url = "";
         let url = `https://newsapi.org/v2/top-headlines?country=in&category=${this.props.category}&apiKey=356f95ea33764cdbade0c4f3f02a9764&page=${this.state.page}&pageSize=${this.props.pageSize}`;
         this.setState({loader:true})
@@ -39,16 +38,45 @@ class News extends Component{
         }
     }
 
+
+    HomePageNews = async () => {
+        let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=356f95ea33764cdbade0c4f3f02a9764&page=${this.state.page}&pageSize=20`;
+        this.setState({loader:true})
+        try {
+            let response = await fetch(url);
+            let result = await response.json();
+            console.log(result);
+            this.setState({status:result.status,message:result.message})
+            this.setState({
+                articles: result.articles,
+                loader : false,
+            })
+        }catch(error){
+            console.error('Error fetching data:', error);
+            this.setState({ loader: false });
+        }
+    }
+
 //first render gets renders first then didMount gets renderd
 
     async componentDidMount(){
-        this.NewsInfo();
+        console.log("cdm");
+        // this.NewsInfo();
+        this.HomePageNews()
     }
 
     async componentDidUpdate(prevProps) {
         if (prevProps.category !== this.props.category) {
             // Fetch new data based on the updated category
-            this.NewsInfo();
+            this.setState({
+                page:1
+            })
+            if(window.location.pathname !== "/about"){
+                this.NewsInfo();
+            }
+            if(window.location.pathname === "/about"){
+                this.HomePageNews();
+            }
         }
     }
        
