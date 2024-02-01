@@ -38,6 +38,7 @@ import ColorPallete from "./components/webPage/practices/ColorPallete";
 import Footer from './components/webPage/Footer/Footer';
 import News from './components/webPage/ClassComp/News';
 import Calulator from './components/webPage/calculator/Calculator';
+import Quiz from './components/webPage/Quiz/Quiz';
 
 function App() {
 
@@ -150,6 +151,7 @@ const [alertMsg , setAlertMsg] = useState(); //alert msg object here;
           </Route>
           <Route path='services' element={<Services></Services>}></Route>
           <Route path='contact' element={<ContactUs></ContactUs>}></Route>
+          <Route path='quiz' element={<Quiz></Quiz>}></Route>
           {/* <Route path="/" element={<Navigate replace to="/home" />} /> */}
         </Routes>
         <Footer></Footer>
