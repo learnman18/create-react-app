@@ -33,3 +33,32 @@
     padding-bottom: 0;
     font-size: 23px;
 }
+
+/* quiz css */
+
+.options {
+    padding: 10px 5px;
+    background-color: #ddd;
+    color: black;
+}
+
+.questionsParent {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+    /* position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center; */
+  }
+
+  .questionsQuiz {
+    /* width: 1000px;
+    border-radius: 10px;
+    position: absolute;
+    top: 10%; */
+    display: none;
+  }
+
+  
