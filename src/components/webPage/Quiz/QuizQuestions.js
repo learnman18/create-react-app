@@ -1,48 +1,48 @@
 const Questions = [
     {
-        question : "Question one",
-        optionOne : "option one",
-        optionTwo : "option two",
-        optionThree : "option three",
-        optionFour : "option four",
+        question : "Who is the first president of India",
+        optionOne : "APJ Kalam",
+        optionTwo : "Radhaksrishnan",
+        optionThree : "Rajendra prasad",
+        optionFour : "Pranab Mukherjee",
         id : 1,
-        answer:"optionOne"
+        answer:"Rajendra prasad"
     },
     {
-        question : "Question two",
-        optionOne : "option one",
-        optionTwo : "option two",
-        optionThree : "option three",
-        optionFour : "option four",
+        question : "Where is the Railway Staff College located?",
+        optionOne : "Pune",
+        optionTwo : "Prayagraj",
+        optionThree : "Vadodara",
+        optionFour : "Delhi",
         id : 2,
-        answer:"optionTwo"
+        answer:"Vadodara"
     },
     {
-        question : "Question Three",
-        optionOne : "option one",
-        optionTwo : "option two",
-        optionThree : "option three",
-        optionFour : "option four",
+        question : "Bijapur is known for its",
+        optionOne : "statue of Gomateswara",
+        optionTwo : "heavy rainfall",
+        optionThree : "Gol Gumbaz",
+        optionFour : "severe drought condition",
         id : 3,
-        answer:"optionOne"
+        answer:"Gol Gumbaz"
     },
     {
-        question : "Question Four",
-        optionOne : "option one",
-        optionTwo : "option two",
-        optionThree : "option three",
-        optionFour : "option four",
+        question : "Wadia Institute of Himalayan Geology is located at",
+        optionOne : "Delhi",
+        optionTwo : "Shimla",
+        optionThree : "Kulu",
+        optionFour : "Dehradun",
         id : 4,
-        answer:"optionThree"
+        answer:"Dehradun"
     },
     {
-        question : "Question Five",
-        optionOne : "option one",
-        optionTwo : "option two",
-        optionThree : "option three",
-        optionFour : "option four",
+        question : "The Indian Institute of Science is located at",
+        optionOne : "Madras",
+        optionTwo : "Bangalore",
+        optionThree : "New Delhi",
+        optionFour : "Kerala",
         id : 5,
-        answer:"optionFour"
+        answer:"Bangalore"
      },
     
 ]

@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import quizData from './QuizQuestions'
+import QuizResult from "./Result";
 
 
 export default function Quiz() {
 
     const [selectedVal , setSelectedVal] = useState([])
     const [currentSlide , setCurrentSlide] = useState(0);
+    const [correctAnswer , setCorrectAnswer] = useState(0);
+    const [incorrectAnswer , setIncorrectAnswer] = useState(0);
     //setting it 0 because map indexing start from 0 however I can do index + 1 in map fun, but It's better.
 
     const getOptionsFromLocal = () => {
@@ -34,7 +37,7 @@ export default function Quiz() {
         setSelectedVal((oldSelection)=> {
             const updatedValue = [...oldSelection];
             updatedValue[index] = selectedOption;
-            console.log(updatedValue);
+            // console.log(updatedValue);
             return updatedValue;
         })
     }
@@ -51,10 +54,25 @@ export default function Quiz() {
     }
 
     const submitAllQuestios = () => {
+        document.getElementsByClassName("questionsParent")[0].style.display="none";
+        document.getElementsByClassName("resultData")[0].style.display="block";
         let confirmation = window.confirm("are you sure you want to submit");
+        let j=0,k=0;
         if(confirmation){
-            console.log(quizData[0].answer)
-            console.log(confirmation);
+        //    console.log("selectedVal",selectedVal);
+            for(let i=0;i<selectedVal.length;i++){
+                if(selectedVal[i] === quizData[i].answer){
+                    j += 1
+                    setCorrectAnswer(j)
+                    console.log("total correct answer " , j)
+                    // console.log("it's corrrect" , "option", quizData[i] , "answer" , quizData[i].answer)
+                }else{
+                    k += 1
+                    setIncorrectAnswer(k)
+                    console.log("total incorrect answer " , k)
+                    // console.log("it's wrong selected option is - " , selectedVal[i]);
+                }
+            }
         } else {
             console.log(confirmation)
         }
@@ -75,19 +93,19 @@ export default function Quiz() {
                                     <div className="answers ps-2">
                                         <ol>
                                             <li className="ps-2 qstn" style={{listStyle:"devanagari"}}>
-                                                <p className="options"><input tabIndex="0" type="radio" name={`quiz${index}`} value="option1" onChange={selectRadio}/>
+                                                <p className="options"><input tabIndex="0" type="radio" name={`quiz${index}`} value={currentQstn.optionOne} onChange={selectRadio}/>
                                                 <span className="ps-1">{currentQstn.optionOne}</span></p>
                                             </li>
                                             <li className="ps-2 qstn" style={{listStyle:"devanagari"}}>
-                                                <p className="options"><input tabIndex="0" type="radio" name={`quiz${index}`} value="option2" onChange={selectRadio}/>
+                                                <p className="options"><input tabIndex="0" type="radio" name={`quiz${index}`} value={currentQstn.optionTwo} onChange={selectRadio}/>
                                                 <span className="ps-1">{currentQstn.optionTwo}</span></p>
                                             </li>
                                             <li className="ps-2 qstn" style={{listStyle:"devanagari"}}>
-                                                <p className="options"><input tabIndex="0" type="radio" name={`quiz${index}`} value="option3" onChange={selectRadio}/>
+                                                <p className="options"><input tabIndex="0" type="radio" name={`quiz${index}`} value={currentQstn.optionThree} onChange={selectRadio}/>
                                                 <span className="ps-1">{currentQstn.optionThree}</span></p>
                                             </li>
                                             <li className="ps-2 qstn" style={{listStyle:"devanagari"}}>
-                                                <p className="options"><input tabIndex="0" type="radio" name={`quiz${index}`} value="option4" onChange={selectRadio}/>
+                                                <p className="options"><input tabIndex="0" type="radio" name={`quiz${index}`} value={currentQstn.optionFour} onChange={selectRadio}/>
                                                 <span className="ps-1">{currentQstn.optionFour}</span></p>
                                             </li>
                                         </ol>
@@ -106,6 +124,9 @@ export default function Quiz() {
                                 </>
                             }
                         </div>
+                    </div>
+                    <div className="col-md-12 resultData" style={{display:"none"}}>
+                        <QuizResult rightAnswer={correctAnswer} wrongAnswer={incorrectAnswer}></QuizResult>
                     </div>
                 </div>
             </div>
