@@ -6,6 +6,7 @@ const Questions = [
         optionThree : "option three",
         optionFour : "option four",
         id : 1,
+        answer:"optionOne"
     },
     {
         question : "Question two",
@@ -14,6 +15,7 @@ const Questions = [
         optionThree : "option three",
         optionFour : "option four",
         id : 2,
+        answer:"optionTwo"
     },
     {
         question : "Question Three",
@@ -22,6 +24,7 @@ const Questions = [
         optionThree : "option three",
         optionFour : "option four",
         id : 3,
+        answer:"optionOne"
     },
     {
         question : "Question Four",
@@ -30,6 +33,7 @@ const Questions = [
         optionThree : "option three",
         optionFour : "option four",
         id : 4,
+        answer:"optionThree"
     },
     {
         question : "Question Five",
@@ -38,7 +42,7 @@ const Questions = [
         optionThree : "option three",
         optionFour : "option four",
         id : 5,
-
+        answer:"optionFour"
      },
     
 ]

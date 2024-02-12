@@ -36,10 +36,11 @@
 
 /* quiz css */
 
-.options {
+.answers .options {
     padding: 10px 5px;
     background-color: #ddd;
     color: black;
+    border-radius: 5px;
 }
 
 .questionsParent {
