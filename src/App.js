@@ -39,6 +39,7 @@ import Footer from './components/webPage/Footer/Footer';
 import News from './components/webPage/ClassComp/News';
 import Calulator from './components/webPage/calculator/Calculator';
 import Quiz from './components/webPage/Quiz/Quiz';
+import PageLoader from './components/webPage/juno/PageLoader';
 
 function App() {
 
@@ -152,6 +153,7 @@ const [alertMsg , setAlertMsg] = useState(); //alert msg object here;
           <Route path='services' element={<Services></Services>}></Route>
           <Route path='contact' element={<ContactUs></ContactUs>}></Route>
           <Route path='quiz' element={<Quiz></Quiz>}></Route>
+          <Route path='juno' element={<PageLoader></PageLoader>}></Route>
           {/* <Route path="/" element={<Navigate replace to="/home" />} /> */}
         </Routes>
         <Footer></Footer>
