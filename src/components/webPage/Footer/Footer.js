@@ -16,6 +16,7 @@ export default function Footer () {
                     <li className="nav-item"><Link to="/" className="px-2">Home</Link></li>
                     <li className="nav-item"><Link to="/about" className="px-2">About</Link></li>
                     <li className="nav-item"><Link to="/quiz" className="px-2">Quiz</Link></li>
+                    <li className="nav-item"><Link to="/juno" className="px-2">Juno</Link></li>
                     </ul>
                     <p className="text-center">©{getCurYear} Company, Inc</p>
                 </footer>
