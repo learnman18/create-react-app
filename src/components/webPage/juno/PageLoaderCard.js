@@ -5,9 +5,8 @@ export default function PageLoaderCard({title , description , junoImg , dateCrea
     const slicedDescription = description.slice(0,130);
 
     const descriptionNewTab = () => {
-        window.open(`/juno/junoDesc/${description}/${title}`, "_blank");
-    };
-    
+        window.open(`/juno/junoDesc/${encodeURIComponent(description)}/${title}`, "_blank");
+    };    
 
     return(
         <>
@@ -20,8 +19,9 @@ export default function PageLoaderCard({title , description , junoImg , dateCrea
                         <div className="card-body">
                             <h5 className="card-title">{title}</h5>
                             <p className="card-text">{slicedDescription}
-                                <span onClick={descriptionNewTab}
-                                style={{textDecoration:"none",color:"blue",cursor:"pointer"}}>...Read More</span>
+                                <span onClick={descriptionNewTab} style={{textDecoration:"none",color:"blue",cursor:"pointer"}}>
+                                    {slicedDescription.length >= 130 ? "...Read More" : ""}
+                                </span>
                                 {/* <Link to={`/juno/junoDesc/${description}`} target="_blank">...Read More</Link> */}
                             </p>
                             <p className="card-text"><small className="text-body-secondary">{dateCreated}</small></p>

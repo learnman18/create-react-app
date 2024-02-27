@@ -8,15 +8,16 @@ const PageLoader = () => {
 
     const [junoInfo , setJunoInfo] = useState([]);
     const [pageNum , setPageNum] = useState(1);
+    const [category , setCategory] = useState("hubble");
 
     useEffect(()=>{
-        axios.get(`https://images-api.nasa.gov/search?q=juno&page=${pageNum}&page_size=20`)
+        axios.get(`https://images-api.nasa.gov/search?q=${category}&page=${pageNum}&page_size=20`)
         .then((respone)=>{
             // console.log(respone.data.collection.items[0].data[0].title);
             setJunoInfo(respone.data.collection.items);
             console.log("then" , pageNum)
         })
-        .catch((err)=> console.log(err , "pageNum" + pageNum));
+        .catch((err)=> console.log(err , "catch" + pageNum));
     },[pageNum])
 
     const ToGetInputNumber = (event) => {
@@ -37,12 +38,18 @@ const PageLoader = () => {
                         )  
                     )
                     :
-                    <p>some error</p>  
+                    <p>Nothing to be found</p>  
                 }
             </div>
-                <p className="text-end">Jump to page :
-                    <input type="text" maxLength="2" style={{width:"30px"}} onChange={ToGetInputNumber}/>
-                </p>
+                <div className="d-flex justify-content-between align-items-center">
+                    <p className="currentPage pe-3">
+                        You are on page : <span className="fw-bold">{pageNum}</span>
+                    </p>
+                    <p className="me-4"><span className="me-2">Jump to page :</span>
+                        <input type="text" maxLength="2" value={pageNum} style={{width:"30px"}} onChange={ToGetInputNumber}/>
+                    </p>
+                </div>
+                
         </div>
     )
 
@@ -51,9 +58,11 @@ const PageLoader = () => {
 export default PageLoader;
 
 
-/*Page Loader with loader feature but the issue is on the first load it's quite amount of data if page_size is more than 20
-it's loads those same cards again with same ID which throws error in console of duplicate card.
-But when we scroll again where we will be able to se Loader... from here it's load new new set of data from page 2. 
+/*Page Loader with loader feature but the issue is on the first load it loads quite amount of data if page_size is more than 20
+it loads those same cards again with same ID which throws error in console of duplicate card.
+But when we scroll again where we get to see the Loader... from here it load new set of data from page 2.
+so it means instead of loading only 20 data(as passed in API) on first load  it loads more card than 20 cards and after 20 cards
+oit will repeat the same card again, and after that when we scroll down it loads new set of cards.
 */
 
 /*
