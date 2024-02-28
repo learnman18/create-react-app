@@ -8,6 +8,15 @@ export default function PageLoaderCard({title , description , junoImg , dateCrea
         window.open(`/juno/junoDesc/${encodeURIComponent(description)}/${title}`, "_blank");
     };    
 
+    /* 
+    // Using useNaviage() for that we also need to use useLocation() in ReadMore.js file
+    const navigate = useNavigate();
+    const descriptionNewTab = () => {
+        navigate(`/juno/junoDesc/${description}/${title}` , {state : {description , title}})
+    }; 
+
+    */
+
     return(
         <>
             <div className="card mb-3 me-4" style={{maxWidth: 540}} id={compIndex}>

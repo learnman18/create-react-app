@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import PageLoaderCard from "./PageLoaderCard";
+import DropdownOptions from "./DropdownOptions";
 // import InfiniteScroll from "react-infinite-scroller";
 
 
@@ -8,7 +9,7 @@ const PageLoader = () => {
 
     const [junoInfo , setJunoInfo] = useState([]);
     const [pageNum , setPageNum] = useState(1);
-    const [category , setCategory] = useState("hubble");
+    const [category , setCategory] = useState("juno");
 
     useEffect(()=>{
         axios.get(`https://images-api.nasa.gov/search?q=${category}&page=${pageNum}&page_size=20`)
@@ -18,7 +19,7 @@ const PageLoader = () => {
             console.log("then" , pageNum)
         })
         .catch((err)=> console.log(err , "catch" + pageNum));
-    },[pageNum])
+    },[pageNum , category])
 
     const ToGetInputNumber = (event) => {
         const originalString = event.target.value;
@@ -26,8 +27,13 @@ const PageLoader = () => {
         setPageNum(lengthOfString);
     }
 
+    function selectedDropdownValues(event) {
+        setCategory(event.target.value);
+    }
+
     return (
         <div className="container">
+            <DropdownOptions defaultSelected={category} selectDropVals={selectedDropdownValues}></DropdownOptions>
             <div className="row pt-4">
                 { junoInfo ?
                     junoInfo.map((curCard , index)=>(

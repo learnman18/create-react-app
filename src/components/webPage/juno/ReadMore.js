@@ -5,7 +5,11 @@ const ReadMore = () => {
 
   console.log("Read more is getting loasd")
   const {description , title} = useParams();
-
+  /*
+    //using useLocation for that we need to also use useNavigate in the pageLoaderCard.js file
+    const location = useLocation();
+    const {description , title} = location.state;
+  */
   return (
     <div className="align-items-center justify-content-center d-flex pt-4">
       <div className="col-md-6">
