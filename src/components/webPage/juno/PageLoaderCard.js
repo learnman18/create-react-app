@@ -21,8 +21,8 @@ export default function PageLoaderCard({title , description , junoImg , dateCrea
         <>
             <div className="card mb-3 me-4" style={{maxWidth: 540}} id={compIndex}>
                 <div className="row align-items-stretch">
-                    <div className="col-md-4 ps-0">
-                        <img src={junoImg} className="img-fluid rounded-start" style={{height:"199px",width:"176px"}} alt="..." />
+                    <div className="col-md-4 ps-0 h-100">
+                        <img src={junoImg} className="img-fluid rounded-start h-100" style={{width:"176px"}} alt="..." />
                     </div>
                     <div className="col-md-8">
                         <div className="card-body">
