@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import PageLoaderCard from "./PageLoaderCard";
 import DropdownOptions from "./DropdownOptions";
+import previewImg from "../../imgs/preview.jpg"
 // import InfiniteScroll from "react-infinite-scroller";
 
 
@@ -10,15 +11,27 @@ const PageLoader = () => {
     const [junoInfo , setJunoInfo] = useState([]);
     const [pageNum , setPageNum] = useState(1);
     const [category , setCategory] = useState("juno");
+    // const [fieldNotFound , setFieldNotFound] = useState(null);
 
     useEffect(()=>{
-        axios.get(`https://images-api.nasa.gov/search?q=${category}&page=${pageNum}&page_size=20`)
+        axios.get(`https://images-api.nasa.gov/search?q=${category}&page=${pageNum}&page_size=10`)
         .then((respone)=>{
             // console.log(respone.data.collection.items[0].data[0].title);
-            setJunoInfo(respone.data.collection.items);
-            console.log("then" , pageNum)
+            // console.log("items - " , respone.data.collection.items[0].links[0].href.replace(/ /g, '%20'));
+            // setJunoInfo(respone.data.collection.items);
+            // console.log("then" , pageNum);
+
+            const items = respone.data.collection.items.map(item => {
+                //adding a new json object property since we are not receceving the link[0].href of preservernace API(item[11])
+                if (!item.links || item.links.length === 0) {
+                    return { ...item, links: [{ href: previewImg }] };
+                    //links: [{ href: previewImg }] this is the property we ae adding.
+                }
+                return item;
+            });
+            setJunoInfo(items);
         })
-        .catch((err)=> console.log(err , "catch" + pageNum));
+        .catch((err)=> console.log("error message - ", err));
     },[pageNum , category])
 
     const ToGetInputNumber = (event) => {
@@ -38,7 +51,7 @@ const PageLoader = () => {
                 { junoInfo ?
                     junoInfo.map((curCard , index)=>(
                         <PageLoaderCard key={curCard.data[0].nasa_id} compIndex={curCard.data[0].nasa_id} title={curCard.data[0].title} 
-                        description={curCard.data[0].description} junoImg={curCard.links[0].href} 
+                        description={curCard.data[0].description} junoImg={curCard.links[0].href}
                         dateCreated={curCard.data[0].date_created.replace(/[TZ]/g , " ")}
                         ></PageLoaderCard>
                         )  
