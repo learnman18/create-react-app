@@ -4,6 +4,7 @@ import PageLoaderCard from "./PageLoaderCard";
 import DropdownOptions from "./DropdownOptions";
 import previewImg from "../../imgs/preview.jpg"
 // import InfiniteScroll from "react-infinite-scroller";
+import "./pageLoader.css"
 
 
 const PageLoader = () => {
@@ -11,9 +12,10 @@ const PageLoader = () => {
     const [junoInfo , setJunoInfo] = useState([]);
     const [pageNum , setPageNum] = useState(1);
     const [category , setCategory] = useState("juno");
-    // const [fieldNotFound , setFieldNotFound] = useState(null);
+    const [loader , setLoader] = useState(false);
 
     useEffect(()=>{
+        setLoader(true);
         axios.get(`https://images-api.nasa.gov/search?q=${category}&page=${pageNum}&page_size=10`)
         .then((respone)=>{
             // console.log(respone.data.collection.items[0].data[0].title);
@@ -26,10 +28,13 @@ const PageLoader = () => {
                 if (!item.links || item.links.length === 0) {
                     return { ...item, links: [{ href: previewImg }] };
                     //links: [{ href: previewImg }] this is the property we ae adding.
+                }else {
+                    console.log("response" , item);
+                    return item;
                 }
-                return item;
             });
             setJunoInfo(items);
+            setLoader(false);
         })
         .catch((err)=> console.log("error message - ", err));
     },[pageNum , category])
@@ -44,32 +49,54 @@ const PageLoader = () => {
         setCategory(event.target.value);
     }
 
+    function pageNumberIncrement(){
+        setPageNum(pageNum + 1);
+        console.log("pageNumberIncrement ",pageNum);
+    }
+
+    function pageNumberDecrement(){
+        setPageNum(pageNum - 1);
+        console.log("pageNumberDecrement ",pageNum);
+    }
+
     return (
-        <div className="container">
-            <DropdownOptions defaultSelected={category} selectDropVals={selectedDropdownValues}></DropdownOptions>
-            <div className="row pt-4">
-                { junoInfo ?
-                    junoInfo.map((curCard , index)=>(
-                        <PageLoaderCard key={curCard.data[0].nasa_id} compIndex={curCard.data[0].nasa_id} title={curCard.data[0].title} 
-                        description={curCard.data[0].description} junoImg={curCard.links[0].href}
-                        dateCreated={curCard.data[0].date_created.replace(/[TZ]/g , " ")}
-                        ></PageLoaderCard>
-                        )  
-                    )
-                    :
-                    <p>Nothing to be found</p>  
-                }
-            </div>
-                <div className="d-flex justify-content-between align-items-center">
-                    <p className="currentPage pe-3">
+        <>
+            {loader && 
+                <div className="pageLoader">
+                </div>
+            }
+            {!loader &&
+            <div className="container">
+                <DropdownOptions defaultSelected={category} selectDropVals={selectedDropdownValues}></DropdownOptions>
+                <div className="row pt-4 justify-content-center">
+                    { junoInfo ?
+                        junoInfo.map((curCard , index)=>(
+                            <PageLoaderCard key={curCard.data[0].nasa_id} compIndex={curCard.data[0].nasa_id} title={curCard.data[0].title} 
+                            description={curCard.data[0].description} junoImg={curCard.links[0].href}
+                            dateCreated={curCard.data[0].date_created.replace(/[TZ]/g , " ")}
+                            ></PageLoaderCard>
+                            )  
+                        )
+                        :
+                        <p>Nothing to be found</p>  
+                    }
+                </div>
+                <div className="d-flex justify-content-center align-items-center">
+                    <p className="currentPage pe-3" style={{width:"50%"}}>
                         You are on page : <span className="fw-bold">{pageNum}</span>
                     </p>
-                    <p className="me-4"><span className="me-2">Jump to page :</span>
-                        <input type="text" maxLength="2" value={pageNum} style={{width:"30px"}} onChange={ToGetInputNumber}/>
-                    </p>
-                </div>
-                
-        </div>
+                    <div className="d-flex align-items-center justify-content-end" style={{width:"50%"}}>
+                        <p className="pe-2" style={{color:"blue",cursor:"pointer",textDecoration:"underline"}} 
+                        onClick={pageNumberDecrement}>Previous</p>
+                        <p className="pe-2"><span className="me-2">Jump to page :</span>
+                            <input type="text" maxLength="2" value={pageNum} style={{width:"30px"}} onChange={ToGetInputNumber}/>
+                        </p>
+                        <p style={{color:"blue", cursor:"pointer",textDecoration:"underline"}} onClick={pageNumberIncrement}>Next</p>
+                    </div>
+                </div>  
+            </div>
+            }
+        </>
     )
 
 }    
