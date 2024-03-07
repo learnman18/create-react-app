@@ -62,8 +62,7 @@ const PageLoader = () => {
     return (
         <>
             {loader && 
-                <div className="pageLoader">
-                </div>
+                <div className="pageLoader"></div> //check pageLoader CSS in css file for the spinner/Loader
             }
             {!loader &&
             <div className="container">
@@ -81,17 +80,20 @@ const PageLoader = () => {
                         <p>Nothing to be found</p>  
                     }
                 </div>
-                <div className="d-flex justify-content-center align-items-center">
-                    <p className="currentPage pe-3" style={{width:"50%"}}>
-                        You are on page : <span className="fw-bold">{pageNum}</span>
-                    </p>
-                    <div className="d-flex align-items-center justify-content-end" style={{width:"50%"}}>
+                <div className="d-flex">
+                    <div className="d-flex justify-content-start" style={{width:"40%"}}>
+                        <p className="currentPage">
+                            You are on page : <span className="fw-bold">{pageNum}</span>
+                        </p>
+                    </div>
+                    <div className="d-flex align-items-center justify-content-end pe-4" style={{width:"60%"}}>
                         <p className="pe-2" style={{color:"blue",cursor:"pointer",textDecoration:"underline"}} 
                         onClick={pageNumberDecrement}>Previous</p>
                         <p className="pe-2"><span className="me-2">Jump to page :</span>
                             <input type="text" maxLength="2" value={pageNum} style={{width:"30px"}} onChange={ToGetInputNumber}/>
                         </p>
-                        <p style={{color:"blue", cursor:"pointer",textDecoration:"underline"}} onClick={pageNumberIncrement}>Next</p>
+                        <p style={{color:"blue", cursor:"pointer",textDecoration:"underline"}} 
+                        onClick={pageNumberIncrement}>Next</p>
                     </div>
                 </div>  
             </div>
