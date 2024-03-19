@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ContactUsDemo from "./practices/ContactDemo";
 
 const ContactUs = () => {
 
@@ -7,6 +8,7 @@ const ContactUs = () => {
         email : ''
     });
 
+
     const inputChange = (event) => {
         const {name , value} = event.target;
         console.log(name , value);
@@ -14,8 +16,7 @@ const ContactUs = () => {
             return{
                 ...previousValue , [name] : value
             }
-        })
-            
+        })    
 
     }
 
@@ -52,6 +53,10 @@ const ContactUs = () => {
                     </div>
                 </form>    
             </div>
+
+            <hr />
+
+            <ContactUsDemo></ContactUsDemo>
         </>
     )
 }

@@ -4,7 +4,7 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import App from './App';
 import { BrowserRouter} from 'react-router-dom';
-import { Auth0Provider } from '@auth0/auth0-react';
+// import { Auth0Provider } from '@auth0/auth0-react';
 
 // import MainRouting from './components/routing/MainRouter';
 // import ErrorMsg from './components/routing/Error';
@@ -16,13 +16,13 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 console.log("button is clicked");
 root.render(
   <React.StrictMode>
-    <Auth0Provider
+    {/* <Auth0Provider
     domain="dev-b647ji6lgbhuqoqr.us.auth0.com"
     clientId="ieTHJ9yjQ4ut55SVadikiQDEOgSLkSWH"
     authorizationParams={{
       redirect_uri: window.location.origin
     }}
-    >
+    > */}
       <BrowserRouter>
       <App></App>
         {/* <Routes>
@@ -33,7 +33,7 @@ root.render(
             <Route element={<ErrorMsg></ErrorMsg>}></Route>
         </Routes> */}
       </BrowserRouter>
-    </Auth0Provider>
+    {/* </Auth0Provider> */}
   </React.StrictMode>
 );
 

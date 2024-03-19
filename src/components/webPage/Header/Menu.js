@@ -3,12 +3,12 @@ import '../../../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import '../../../../node_modules/bootstrap/dist/js/bootstrap.bundle.js'
 import { NavLink, Link, Outlet } from "react-router-dom";
 import '../Header/Menu.css'
-import { useAuth0 } from "@auth0/auth0-react";
+// import { useAuth0 } from "@auth0/auth0-react";
 
 const Menu = (props) =>{
 
     const [isNavItemVisible, setNavItemVisibility] = useState(false);
-    const { loginWithRedirect, logout ,user, isAuthenticated } = useAuth0(); //Auth0 hook to use the predefined loginWithRedirect function
+    // const { loginWithRedirect, logout ,user, isAuthenticated } = useAuth0(); //Auth0 hook to use the predefined loginWithRedirect function
 
 //For mobile navbar collapse on item select
     const handleNavItemClick = () => {
@@ -47,7 +47,7 @@ const Menu = (props) =>{
                                 <li className="nav-item" onClick={handleNavItemClick}>
                                     <NavLink className="nav-link" to='/contact' >Contact</NavLink>
                                 </li>
-                                {
+                                {/* {
                                     isAuthenticated ? 
                                     <li className="nav-item">
                                     <button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })} className="nav-link" style={{borderBottom:"2px solid red"}}>Log out</button>
@@ -58,6 +58,9 @@ const Menu = (props) =>{
                                         </li>
 
                                 }
+                                {
+                                    isAuthenticated && <p style={{color:"initial"}}>{user.name}</p>
+                                } */}
                             </ul>
                         </div>
                     </div>
