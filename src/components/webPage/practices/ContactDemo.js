@@ -15,7 +15,6 @@ const ContactUsDemo = () => {
         setUserFields({...userFields , [name] : value})
     }
 
-
     const validateForm = () => {
         const err = {}
         if(!userFields.userName){
@@ -34,8 +33,21 @@ const ContactUsDemo = () => {
             err.userPassword="Password is required";
             console.log(errors.userPassword)
         }
+        if(userFields.userPassword.length < 8  || userFields.userPassword.length > 20 ){
+            err.userPassword = "Password should be more than 8 char and less than 20 char";
+        }else if(!PasswordValidation(userFields.userPassword)){
+            err.userPassword = <>
+                <ul>
+                    <li>Uppercase is must</li>
+                    <li>Lowercase is must</li>
+                    <li>Numerss are must</li>
+                    <li>Specail char is must</li>
+                    <li>Alphabate is must</li>
+                </ul>
+            </>
+        }
         setErrors(err);
-        console.log("err" , err);
+        // console.log("err" , err);
     }
 
     function NameValidation(name){
@@ -48,10 +60,18 @@ const ContactUsDemo = () => {
         return nameRegex.test(email);
     }
 
+    function PasswordValidation(password){
+        const passwordRegex = /^[0-9a-zA-Z\@$%&*!_+-=#%^.,?{}()|:;\/]+$/;
+        return passwordRegex.test(password);
+    }
+
     const UserInfoSubmission = (event) => {
         event.preventDefault();
-        console.log("form submitted");
-        validateForm();
+        if(validateForm()){
+            console.log("form submitted");
+        }else {
+            console.log('Form validation failed');
+          }
     }
 
     function PasswordVisiblity() {
@@ -76,27 +96,29 @@ const ContactUsDemo = () => {
     return(
         <>
             <div>
-                <form className="row contact" onSubmit={UserInfoSubmission}>
+                <form className="contact" onSubmit={UserInfoSubmission}>
                     <div className="mb-3 row">
                         <label  className="col-sm-1 col-form-label">Name</label>
                         <div className="col-sm-3">
                             <input type="text" className="form-control" id="name"  name='userName' onChange={userInput}/>
-                            {errors.userName && <span>{errors.userName}</span>}
+                            {errors.userName && <span style={{color:"red"}}>{errors.userName}</span>}
                         </div>
                     </div>
                     <div className="mb-3 row">
                         <label  className="col-sm-1 col-form-label">Email</label>
                         <div className="col-sm-3">
                             <input type="text" className="form-control" id="email" name='userEmail' onChange={userInput}/>
-                            {errors.userEmail && <span>{errors.userEmail}</span>}
+                            {errors.userEmail && <span style={{color:"red"}}>{errors.userEmail}</span>}
                         </div>
                     </div>
                     <div className="mb-3 row">
                         <label  className="col-sm-1 col-form-label">Password</label>
-                        <div className="col-sm-3 passwordMainCls">
-                            <input type="password" className="form-control" id="mobile" name='userPassword' onChange={userInput}/>
-                            <span className="password-toggle-icon" tabIndex="0" id="eyeIconClick" onClick={PasswordVisiblity}><i className="fas fa-eye"></i></span>
-                            {errors.userPassword && <span>{errors.userPassword}</span>}
+                        <div className="col-sm-3">
+                            <div className="passwordMainCls">
+                                <input type="password" className="form-control" id="mobile" name='userPassword' onChange={userInput}/>
+                                <span className="password-toggle-icon" tabIndex="0" id="eyeIconClick" onClick={PasswordVisiblity}><i className="fas fa-eye"></i></span>
+                            </div>
+                            {errors.userPassword && <span style={{color:"red"}}>{errors.userPassword}</span>}
                         </div>
                     </div>
                     <div className="col-auto">
