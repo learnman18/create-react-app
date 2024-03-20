@@ -3,39 +3,39 @@ import ContactUsDemo from "./practices/ContactDemo";
 
 const ContactUs = () => {
 
-    const [fields , setFields] = useState({
-        name : '',
-        email : ''
-    });
+    // const [fields , setFields] = useState({
+    //     name : '',
+    //     email : ''
+    // });
 
 
-    const inputChange = (event) => {
-        const {name , value} = event.target;
-        console.log(name , value);
-        setFields((previousValue)=>{
-            return{
-                ...previousValue , [name] : value
-            }
-        })    
+    // const inputChange = (event) => {
+    //     const {name , value} = event.target;
+    //     console.log(name , value);
+    //     setFields((previousValue)=>{
+    //         return{
+    //             ...previousValue , [name] : value
+    //         }
+    //     })    
 
-    }
+    // }
 
-    const subDetails = (event) => {
-        event.preventDefault();
-        if(fields.name ==="" || fields.email === ""){
-            console.log("its empty");
-            alert("Please enter something")
-            return false;
-        }else{
-            alert(`My Name : ${fields.name}  \nMy Email : ${fields.email}` )
-        // alert("My Name is :" + fields.name + "\nMy Email is :" + fields.email)
-        }
-    }
+    // const subDetails = (event) => {
+    //     event.preventDefault();
+    //     if(fields.name ==="" || fields.email === ""){
+    //         console.log("its empty");
+    //         alert("Please enter something")
+    //         return false;
+    //     }else{
+    //         alert(`My Name : ${fields.name}  \nMy Email : ${fields.email}` )
+    //     // alert("My Name is :" + fields.name + "\nMy Email is :" + fields.email)
+    //     }
+    // }
 
     return(
         <>
-            <div>
-                <form className="row contact" onSubmit={subDetails}>
+            {/* <div className="">
+                <form className="contact" onSubmit={subDetails}>
                     <div className="mb-3 row">
                         <label  className="col-sm-1 col-form-label">Name</label>
                         <div className="col-sm-3">
@@ -52,10 +52,7 @@ const ContactUs = () => {
                         <button type="submit" className="btn btn-primary mb-3">Submit</button>
                     </div>
                 </form>    
-            </div>
-
-            <hr />
-
+            </div> */}
             <ContactUsDemo></ContactUsDemo>
         </>
     )
