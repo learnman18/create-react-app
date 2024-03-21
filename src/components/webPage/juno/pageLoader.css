@@ -1,3 +1,5 @@
+/*Loader*/
+
 .pageLoader {
   position: fixed;
   left: 0px;
@@ -7,4 +9,18 @@
   z-index: 9999;
   background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Phi_fenomeni.gif/50px-Phi_fenomeni.gif') 
               50% 50% no-repeat rgb(249,249,249);
+}
+
+/*Cards*/
+
+@media (max-width:768px){
+  .mobileImg{
+    width: 100% !important;
+  }
+  .junoCard{
+    margin-right: 0 !important;
+  }
+  .junoMobileChanges{
+    padding: 15px;
+  }
 }

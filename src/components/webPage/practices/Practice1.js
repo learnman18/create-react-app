@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../../../UndoRedo" //we import this file for undo redo or we can also add a CDN for this in index.html
+import "../practices/Practice.css"
 
 export default function PracticeOne(props) {
 
@@ -49,34 +50,36 @@ export default function PracticeOne(props) {
                         <button className="btn btn-primary me-3" onClick={UpperCase}>Upper Case</button>
                         <button className="btn btn-primary me-3" onClick={LowerCase}>Lower Case</button>    
                         <button className="btn btn-primary me-3" onClick={ClearText}>Clear Text</button>
-                        <button className="btn btn-primary me-3" onClick={RemoveExtraSpaces}>Remove extra Spaces</button>
+                        <button className="btn btn-primary me-3 btnAlign" onClick={RemoveExtraSpaces}>Remove extra Spaces</button>
                 </div>
              </div>
             <div>
-                <h4>Preview</h4>
-                <p>{text}</p>
-            </div>
-            <div>
-                <h4>Your Text Summary</h4>
-                {
-                text ? <p> {text.split(/[ ]+/).length} words and {text.length} Characters </p> : 
-                <p> 0 words and 0 Characters</p>
-                }
-            </div>
-            <div className="d-flex">
-                <div className="me-3">
-                    <h6>Paragraphs</h6>
-                    {text ? text.includes('\n') ?  <p> {text.split(/\n+/).length - 1} </p> : <p> 0 </p> : <p> 0 </p>}
+                <div>
+                    <h4>Preview : </h4>
+                    {text && <p>{text}</p>}
                 </div>
                 <div>
-                    <h6>Sentence</h6>
-                    {text ? text.includes('.') ?  <p> {text.split(/\.+/).length - 1} </p> : <p> 0 </p> : <p> 0 </p>}
-                    {/* it has 2 condition's in it, {text ? text.includes('.'): <p> 0 </p> and the other one which is
-                    nested if condition text.includes('.') ?  <p> {text.match(/\./g).length} </p> : <p> 0 </p>.
-                    explain - if text is not empty it will check the nested if condition i.e text.includes('.') and if the 
-                        sentence has .(dot) in it will cehck the text.match(/\./g).length and count It's length.
-                        and if both the condition fails it will display 0.
-                    */}
+                    <h4>Your Text Summary</h4>
+                    {
+                    text ? <p> {text.split(/[ ]+/).length} words and {text.length} Characters </p> : 
+                    <p> 0 words and 0 Characters</p>
+                    }
+                </div>
+                <div className="d-flex">
+                    <div className="me-3">
+                        <h6>Paragraphs</h6>
+                        {text ? text.includes('\n') ?  <p> {text.split(/\n+/).length - 1} </p> : <p> 0 </p> : <p> 0 </p>}
+                    </div>
+                    <div>
+                        <h6>Sentence</h6>
+                        {text ? text.includes('.') ?  <p> {text.split(/\.+/).length - 1} </p> : <p> 0 </p> : <p> 0 </p>}
+                        {/* it has 2 condition's in it, {text ? text.includes('.'): <p> 0 </p> and the other one which is
+                        nested if condition text.includes('.') ?  <p> {text.match(/\./g).length} </p> : <p> 0 </p>.
+                        explain - if text is not empty it will check the nested if condition i.e text.includes('.') and if the 
+                            sentence has .(dot) in it will cehck the text.match(/\./g).length and count It's length.
+                            and if both the condition fails it will display 0.
+                        */}
+                    </div>
                 </div>
             </div>
         </div>

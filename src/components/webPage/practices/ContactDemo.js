@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../../../App.css";
+import "../../webPage/practices/Practice.css"
 
 const ContactUsDemo = () => {
 
@@ -40,13 +40,14 @@ const ContactUsDemo = () => {
                 <ul>
                     <li>Uppercase is must</li>
                     <li>Lowercase is must</li>
-                    <li>Numerss are must</li>
-                    <li>Specail char is must</li>
-                    <li>Alphabate is must</li>
+                    <li>Numbers are must</li>
+                    <li>Special char is must</li>
                 </ul>
             </>
         }
         setErrors(err);
+        console.log("keys" , Object.keys(err))
+        return Object.keys(err).length === 0; //is used to check if there are any errors present in the errors object
         // console.log("err" , err);
     }
 
@@ -61,13 +62,14 @@ const ContactUsDemo = () => {
     }
 
     function PasswordValidation(password){
-        const passwordRegex = /^[0-9a-zA-Z\@$%&*!_+-=#%^.,?{}()|:;\/]+$/;
+        const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).*$/;
         return passwordRegex.test(password);
     }
 
     const UserInfoSubmission = (event) => {
         event.preventDefault();
         if(validateForm()){
+            alert("form has been submitted succesfully")
             console.log("form submitted");
         }else {
             console.log('Form validation failed');
@@ -86,29 +88,35 @@ const ContactUsDemo = () => {
         }
     }
 
-    // const eyeIcon = document.getElementById("eyeIconClick");
-    // eyeIcon.onkeydown((e)=>{
-    //     if ((e.keyCode || e.which) == 13){
-    //         PasswordVisiblity();
-    //     }
-    // })
+  /* password visible icon on enter button press it should display the password */  
+    window.onload = function(){
+        const eyeIcon = document.getElementById("eyeIconClick");
+        eyeIcon.onkeydown = function(e){myFun(e)}
+    }
+
+    function myFun(e){
+        if ((e.keyCode || e.which) === 13){
+            console.log("keydown")
+            PasswordVisiblity();
+        }
+    }
 
     return(
         <>
-            <div>
+            <div className="container">
                 <form className="contact" onSubmit={UserInfoSubmission}>
                     <div className="mb-3 row">
                         <label  className="col-sm-1 col-form-label">Name</label>
                         <div className="col-sm-3">
                             <input type="text" className="form-control" id="name"  name='userName' onChange={userInput}/>
-                            {errors.userName && <span style={{color:"red"}}>{errors.userName}</span>}
+                            {errors.userName && <span style={{color:"red",fontSize:"13px"}}>{errors.userName}</span>}
                         </div>
                     </div>
                     <div className="mb-3 row">
                         <label  className="col-sm-1 col-form-label">Email</label>
                         <div className="col-sm-3">
                             <input type="text" className="form-control" id="email" name='userEmail' onChange={userInput}/>
-                            {errors.userEmail && <span style={{color:"red"}}>{errors.userEmail}</span>}
+                            {errors.userEmail && <span style={{color:"red",fontSize:"13px"}}>{errors.userEmail}</span>}
                         </div>
                     </div>
                     <div className="mb-3 row">
@@ -116,9 +124,11 @@ const ContactUsDemo = () => {
                         <div className="col-sm-3">
                             <div className="passwordMainCls">
                                 <input type="password" className="form-control" id="mobile" name='userPassword' onChange={userInput}/>
-                                <span className="password-toggle-icon" tabIndex="0" id="eyeIconClick" onClick={PasswordVisiblity}><i className="fas fa-eye"></i></span>
+                                <span className="password-toggle-icon" tabIndex="0" id="eyeIconClick" onClick={PasswordVisiblity}>
+                                    <i className="fas fa-eye"></i>
+                                </span>
                             </div>
-                            {errors.userPassword && <span style={{color:"red"}}>{errors.userPassword}</span>}
+                            {errors.userPassword && <span style={{color:"red",fontSize:"13px"}}>{errors.userPassword}</span>}
                         </div>
                     </div>
                     <div className="col-auto">
