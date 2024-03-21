@@ -29,7 +29,7 @@ const PageLoader = () => {
                     return { ...item, links: [{ href: previewImg }] };
                     //links: [{ href: previewImg }] this is the property we ae adding.
                 }else {
-                    console.log("response" , item);
+                    // console.log("response" , item);
                     return item;
                 }
             });

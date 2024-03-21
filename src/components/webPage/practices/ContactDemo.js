@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import "../../webPage/practices/Practice.css"
+import emailjs from "emailjs-com";
 
 const ContactUsDemo = () => {
 
+    const form = useRef();
     const [userFields , setUserFields] = useState({
         userName:"" ,
         userEmail:"",
@@ -70,7 +72,13 @@ const ContactUsDemo = () => {
         event.preventDefault();
         if(validateForm()){
             alert("form has been submitted succesfully")
-            console.log("form submitted");
+            emailjs.sendForm('service_4r5vwgi', 'template_cf196pm', form.current, 'yxCRFaE732YWUqTOm',)
+            .then(() => {
+                window.location.reload()  //This is if you still want the page to reload (since e.preventDefault() cancelled that behavior) 
+                console.log('SUCCESS!');
+            }, (error) => {
+                console.log(error.text);
+            });
         }else {
             console.log('Form validation failed');
           }
@@ -104,7 +112,7 @@ const ContactUsDemo = () => {
     return(
         <>
             <div className="container">
-                <form className="contact" onSubmit={UserInfoSubmission}>
+                <form className="contact" ref={form} onSubmit={UserInfoSubmission}>
                     <div className="mb-3 row">
                         <label  className="col-sm-1 col-form-label">Name</label>
                         <div className="col-sm-3">
@@ -139,5 +147,6 @@ const ContactUsDemo = () => {
         </>
     )
 }
+
 
 export default ContactUsDemo;
