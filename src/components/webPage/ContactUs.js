@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import ContactUsDemo from "./practices/ContactDemo";
 
 const ContactUs = () => {

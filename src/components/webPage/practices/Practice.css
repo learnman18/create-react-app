@@ -11,25 +11,25 @@
 .passwordMainCls {
     position: relative;
   }
-  
-  .password-toggle-icon {
-    position: absolute;
-    top: 15%;
-    right: 10px;
-    cursor: pointer;
-  }
-  
-  .password-toggle-icon i {
-    font-size: 18px;
-    color: #333;
-    transition: color 0.3s ease-in-out;
-    margin-right: 5px;
-  }
-  
-  .password-toggle-icon i:hover {
-    color: #000;
-  }
-  
-  form.contact .row{
-    --bs-gutter-x: 0;
-  }
+
+.password-toggle-icon {
+  position: absolute;
+  top: 20%;
+  right: 5px;
+  cursor: pointer;
+}
+
+.password-toggle-icon i {
+  font-size: 18px;
+  color: #333;
+  transition: color 0.3s ease-in-out;
+  margin-right: 5px;
+}
+
+.password-toggle-icon i:hover {
+  color: #000;
+}
+
+form.contact .row{
+  --bs-gutter-x: 0;
+}
