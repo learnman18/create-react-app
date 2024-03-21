@@ -33,7 +33,7 @@ const CurrencyExchnage = (props) =>{
                         <h4>
                             Currency Exchange
                         </h4>
-                        <input type="text" className="form-control mb-2" placeholder="enter the base currency" value={baseCurrency}/>
+                        <input type="text" className="form-control mb-2" placeholder="enter the base currency" defaultValue="INR"/>
                         <select className="form-select" aria-label="Default select example" onChange={selectOptions}>
                             <option>Open this select menu</option>
                             {

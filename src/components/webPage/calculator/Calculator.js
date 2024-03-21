@@ -39,7 +39,8 @@ export default function Calulator({borderClr , bgClr}){
         }
 
         list.forEach((currentLists)=>{
-            currentLists.addEventListener("click" , iterateListItem)
+            console.log("event added");
+            currentLists.addEventListener("click" , iterateListItem);
         })
 
         // Cleanup previous event listeners

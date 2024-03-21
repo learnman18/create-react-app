@@ -116,7 +116,8 @@ This ensures that you are working with the most up-to-date state.*/
                 {/* {this.state.status !== "ok" && <h1>{this.state.message}</h1> } */}
                 {this.state.loader && <Spinner></Spinner>}
                 {!this.state.loader &&
-                    this.state.status !== "ok" ? <h1>{this.state.message}</h1> :
+                    // this.state.status !== "ok" ? <h1>{this.state.message}</h1> :
+                    this.state.status !== "ok" ? <h1>Want to use it ? Pay for it 😊</h1> :
                     <div className="row mx-4 my-4">
                         {
                             this.state.articles.map((elem)=>{
