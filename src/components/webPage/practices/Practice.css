@@ -1,0 +1,35 @@
+/* Practice.js - text editor comp */
+
+@media (max-width:768px){
+    button.btnAlign{
+        margin-top: 10px !important;
+    }    
+}
+
+/* contactDemo.js */
+
+.passwordMainCls {
+    position: relative;
+  }
+  
+  .password-toggle-icon {
+    position: absolute;
+    top: 15%;
+    right: 10px;
+    cursor: pointer;
+  }
+  
+  .password-toggle-icon i {
+    font-size: 18px;
+    color: #333;
+    transition: color 0.3s ease-in-out;
+    margin-right: 5px;
+  }
+  
+  .password-toggle-icon i:hover {
+    color: #000;
+  }
+  
+  form.contact .row{
+    --bs-gutter-x: 0;
+  }

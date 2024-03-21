@@ -34,17 +34,17 @@ const Menu = (props) =>{
                         </button>
                         <div className={`collapse navbar-collapse col-4 ${isNavItemVisible ? 'show' :'' }`} id="navbarNav">
                             <ul className="navbar-nav">
-                                <li className="nav-item" onClick={handleNavItemClick}>
+                                <li className="nav-item navWidthMobile" onClick={handleNavItemClick}>
                                     <NavLink className="nav-link" 
                                     to='/' >Home</NavLink>
                                 </li>
-                                <li className="nav-item" onClick={handleNavItemClick}>
+                                <li className="nav-item navWidthMobile" onClick={handleNavItemClick}>
                                     <NavLink className="nav-link" to='/services' >Services</NavLink>
                                 </li>
-                                <li className="nav-item" onClick={handleNavItemClick}>
+                                <li className="nav-item navWidthMobile" onClick={handleNavItemClick}>
                                     <NavLink className="nav-link"  to='/about'>About</NavLink>
                                 </li>
-                                <li className="nav-item" onClick={handleNavItemClick}>
+                                <li className="nav-item navWidthMobile" onClick={handleNavItemClick}>
                                     <NavLink className="nav-link" to='/contact' >Contact</NavLink>
                                 </li>
                                 {/* {

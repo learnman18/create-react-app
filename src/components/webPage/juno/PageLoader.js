@@ -67,7 +67,7 @@ const PageLoader = () => {
             {!loader &&
             <div className="container">
                 <DropdownOptions defaultSelected={category} selectDropVals={selectedDropdownValues}></DropdownOptions>
-                <div className="row pt-4 justify-content-center">
+                <div className="row pt-4 justify-content-center junoMobileChanges">
                     { junoInfo ?
                         junoInfo.map((curCard , index)=>(
                             <PageLoaderCard key={curCard.data[0].nasa_id} compIndex={curCard.data[0].nasa_id} title={curCard.data[0].title} 
@@ -80,13 +80,13 @@ const PageLoader = () => {
                         <p>Nothing to be found</p>  
                     }
                 </div>
-                <div className="d-flex">
-                    <div className="d-flex justify-content-start" style={{width:"40%"}}>
+                <div className="">
+                    <div className="d-flex justify-content-start">
                         <p className="currentPage">
                             You are on page : <span className="fw-bold">{pageNum}</span>
                         </p>
                     </div>
-                    <div className="d-flex align-items-center justify-content-end pe-4" style={{width:"60%"}}>
+                    <div className="d-flex align-items-center justify-content-start pe-4">
                         <p className="pe-2" style={{color:"blue",cursor:"pointer",textDecoration:"underline"}} 
                         onClick={pageNumberDecrement}>Previous</p>
                         <p className="pe-2"><span className="me-2">Jump to page :</span>
