@@ -1,0 +1,44 @@
+Two ways we can convert or typecast array strings into number
+
+// Create an array of string
+let stringArrayOne = ["10", "21", "3", "14", "53"];
+console.log("original array - " , stringArrayOne)
+
+let numberArrayOne = stringArrayOne.map(Number);
+
+console.log("typecaseted to number - " , numberArrayOne);
+
+// Create an array of string
+let stringArrayTwo = ["10", "21", "3", "14", "53"];
+console.log("original array - " , stringArrayTwo)
+
+let numberArrayTwo = stringArrayTwo.map((curVal)=>Number(curVal));
+
+console.log("typecaseted to number - " , numberArrayTwo);
+
+
+-----------------------------------------
+
+convert array into number to perform any caculation.
+
+eg - inputVal = ["1","5","*","6"];
+let convertToNum = partAfterMultiply.join('').replace(/[^0-9]/g, '')
+it will filter out the * from string and then it will convert it into 
+check on console - inputVal = 156;
+but we need to conver it into number format, the above will work too but it concats the values instead of adding it if we are performing additon.
+let toNumOP = convertToNum.split('').map(Number)
+check on console - inputVal = [1,5,6]
+Now it has been converted to array of number, since it still a array we need to make it proper number-
+let caculateOP = toNumOP.reduce(function (accum, digit) {
+	return (accum * 10) + digit
+}, 0);
+check on console - inputVal = 156
+
+code - 
+
+let convertToNum = partAfterMultiply.join('').replace(/[^0-9]/g, '')
+let toNumOP = convertToNum.split('').map(Number)
+let caculateOP = toNumOP.reduce(function (accum, digit) {
+	return (accum * 10) + digit
+}, 0);
+

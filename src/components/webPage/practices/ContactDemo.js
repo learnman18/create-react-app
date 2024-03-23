@@ -8,7 +8,8 @@ const ContactUsDemo = () => {
     const [userFields , setUserFields] = useState({
         userName:"" ,
         userEmail:"",
-        userPassword:""
+        userPassword:"",
+        userMessage:""
     });
     const [errors , setErrors] = useState({});
     
@@ -137,6 +138,12 @@ const ContactUsDemo = () => {
                                 </span>
                             </div>
                             {errors.userPassword && <span style={{color:"red",fontSize:"13px"}}>{errors.userPassword}</span>}
+                        </div>
+                    </div>
+                    <div className="mb-3 row">
+                        <label  className="col-sm-1 col-form-label">Message</label>
+                        <div className="col-sm-3">
+                            <textarea className="form-control" id="message" name='userMessage' onChange={userInput}/>
                         </div>
                     </div>
                     <div className="col-auto">

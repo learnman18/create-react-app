@@ -1,0 +1,47 @@
+useState()
+
+createContext() - 
+If we want to pass some data from one parent comp to their child comp when we have multiple child comp and we want only one particluar 
+child comp to access the data.
+
+App.js
+compA.js
+compB.js
+CompC.js
+
+I want the data to share the data with only compC.js
+It needs three things to share the data.
+1. createContext
+2. Provider - the one who will provide the data
+3. consumer - the one who will access the data
+
+App.js
+
+const firstName = createContext();
+inside - return (
+<>
+	<firstName.Provider value={"Manish"}>
+		//the first child from where we are accessing the compC will be here so here it is 
+		<compA>
+	</firstName.Provider>
+</>
+)
+if we want to transfer the data we need to export it.
+
+export default App.js
+export {firstName};
+
+compC.js
+
+and when we are accessing, the consumer only understands functions so we can only use function
+
+import firstName;
+
+<firstName.Consumer>{(fname)=>{
+	<h1>Hello this is  {fname}</h1>
+}}</firstName.Consumer>
+
+
+Output - Hello this is Manish
+
+

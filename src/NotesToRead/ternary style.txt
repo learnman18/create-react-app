@@ -1,0 +1,26 @@
+<li className="nav-item">
+	<NavLink className="nav-link" style={({ isActive }) => ({
+		color: isActive ? "red" : "inherit",
+	})} to='/services' >Services</NavLink>
+</li>
+
+that's how we use style inline css using react's ternary operator.
+isActive is predefined <NavLink> method
+
+-------------------
+
+className={({ isActive, isPending }) =>
+	[
+	isPending ? "pending" : "",
+	isActive ? "active" : ""
+	]
+} 
+
+here we have two ternary conditon's so we are keeping it in array
+
+in this we can use active class and add whatever css we want.
+
+using ternary operator in inline className
+
+but we don't need to use any of these - if we are using <NavLink> it automatically applies,
+.active class and we just need to add css in that class.

@@ -1,0 +1,66 @@
+//forEach loop iterate(call a function) through all the array element, and it does not create any new array
+// syntax - object.forEach(function(currentValue, index, array))
+
+const arr1 = [10,20,30]
+
+const x = arr1.forEach((curVal, index , array)=>{
+    console.log(curVal)
+    return curVal + 5;
+})
+console.log("forEach" , x)
+
+//map performs same action means calling the function as forEach but it creates new array element.
+const arr2 = [10,20,30]
+
+const y = arr2.map((curVal, index , array)=>{
+    console.log(curVal)
+    return curVal + 5;
+})
+console.log("map " , y)
+
+
+//filters an array that passes the test and create new array for that.
+//iterate through all the array, It's like conditinal method where it checkes the conditon if it passes it creats new array.
+const arr3 = [20,30,6,7]
+
+const z = arr3.filter((curVal, index , array)=>{
+    console.log(curVal)
+    return curVal > 15;
+})
+console.log("filter " , z)
+
+//reduce an array to single value
+// so what it does totalValue is initial value for the first array element then it keeps adding the other elements into it.
+// eg - totalVal = 4 & curVal = 5
+// so what it does = totalVal + curVal = 9
+// now the value of totalVal will be 9 and curVal will be the next element which is 8 , similary it will do the same for all element
+
+
+const arr4 = [4,5,8,7,6]
+
+const reduceArr = arr4.reduce((totalVal , curVal)=>{
+        // console.log(totalVal)
+        console.log(curVal)
+        return totalVal + curVal;
+})
+console.log("filter " , reduceArr)
+
+
+------------------------------------------
+MAP in react JSX - 
+
+junoInfo.map((curCard , index)=>{
+	return(
+	<div class="xyz">curCard.title</div>
+	)
+	}
+)
+
+
+we can use this square bracket in map instead of using the return keyword and curly braces.
+
+junoInfo.map((curCard , index)=>(
+	<div class="xyz">curCard.title</div>
+	)  
+)
+

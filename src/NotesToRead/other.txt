@@ -1,0 +1,126 @@
+
+ 
+ $grid-breakpoints: (
+  xs: 0 to below 576,
+  sm: 576px to 768,
+  md: 768px to 992,
+  lg: 992px to 1200,
+  xl: 1200px to 1400,
+  xxl: 1400px
+);
+
+https://vscode.dev/github/learnman18/create-react-app
+
+
+<h4>Your Text Summary</h4>
+	{
+	text ? <p> {text.split(/\s/).length-1} words and {text.length} Characters </p> : 
+	<p> 0 words and 0 Characters</p>
+	}
+	
+	4,9
+	
+
+list.forEach((cureentLists)=>{
+	cureentLists.addEventListener("click" , (event)=>{
+	console.log("value" , event.target.innerText);
+	setInputVal((prevVal)=>{
+		return [...prevVal , event.target.innerText]
+	});
+})
+
+the wrong code - 
+
+
+const Backspace = () => {
+            setInputVal((prevState)=>{
+                console.log("previous state" , prevState);
+                let updateTheState = inputVal.pop();
+                console.log("updated state" , updateTheState);
+                return [...prevState , updateTheState];
+            })
+        }
+		
+correct code - 
+
+In your Backspace function, you are using the pop method to remove the last item from the inputVal array.
+ However, pop modifies the original array and returns the removed element. This means that in your state update,
+ you are actually adding the removed element back to the array.		
+ 
+ const Backspace = () => {
+    setInputVal((prevState)=>{
+        console.log("previous state" , prevState);
+        // Use slice to create a new array without the last element
+        let updatedState = prevState.slice(0, -1);
+        console.log("updated state" , updatedState);
+        return updatedState;
+    });
+}
+
+to convert array of string into number and to use it for calculator - 
+
+
+const array = ["1","2","3"]
+
+let toNum = array.map(Number); // this map method will use js Number method for typecast to convert it into number
+console.log(toNum);
+
+var x = toNum.reduce(function (accum, digit) {
+    console.log("inside reduce" , (accum * 10) + digit)
+    return (accum * 10) + digit
+}, 0);
+
+console.log("Total output" , x * 2)
+
+reference - https://www.designcise.com/web/tutorial/how-to-convert-an-array-of-digits-to-an-integer-in-javascript
+
+------------------------------------------
+const array = ["1","2","*"]
+
+console.log("original array ",array);
+// let toNum = array.map(Number);
+
+const remSpecialChar = array.filter(function(curVal , index){
+    return curVal.match(/[0-9]/) && curVal
+    // return Number(regExVal)
+})
+console.log("after filter - ", remSpecialChar)
+let toNum = remSpecialChar.map(Number);
+
+console.log("after map" , toNum)
+
+var x = toNum.reduce(function (accum, digit) {
+    // console.log("inside reduce" , (accum * 10) + digit)
+    return (accum * 10) + digit
+}, 0);
+
+console.log("Total output" , x * 2)
+
+-------------------------------------------
+
+<p className={`preview border border-${borderClr}`}
+value={inputVal && inputVal.join('')}>{inputVal && inputVal.join('').replace(/@+/g, "@").replace(/=+/g, "=")}</p>
+
+/^@\/\+\-=\.\*+$/
+
+--------------------------------------------
+
+This is called infinite scroll. If you don't wanna build this from the scratch, you can use external libs:
+
+https://www.npmjs.com/package/react-infinite-scroller
+
+https://www.npmjs.com/package/react-infinite-scroll-component
+
+If you wanna build it yourself, you can follow these tutorials:
+
+https://alligator.io/react/react-infinite-scroll/
+
+https://upmostly.com/tutorials/build-an-infinite-scroll-component-in-react-using-react-hooks
+
+
+-------------------------------------------
+
+
+<PageLoaderCard title={junoInfo.data[0].title} description={junoInfo.data[0].description} 
+                            junoImg={junoInfo.links[0].href} dateCreated={junoInfo.data[0].date_created.replace(/[TZ]/ , " ")}
+                        ></PageLoaderCard>

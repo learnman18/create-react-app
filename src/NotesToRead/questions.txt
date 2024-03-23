@@ -1,0 +1,46 @@
+<!--------
+vs code extentions - 
+React extension pack
+emmet or settings.json
+--------->
+
+<!--------
+async await
+fetch , try and catch
+callback
+promises
+DOM manipulation
+less-saas
+ES6
+--------->
+
+<!--------
+if we are using async and await we don't need to write the .then and .catch callback functions.
+--------->
+
+<!--------
+object.keys() - seperate the object keys and values and returns keys
+var x = {
+	name:"Manish:,
+	lname:"Pandey"
+}
+
+const z = Object.keys(x);
+o/p = name , lname
+--------->
+
+<!--------
+object.assign() - 
+Object.assign(source , target)
+--------->
+
+<!--------
+1. what is Enumerability.
+2. Disadvantages of arrow function
+3. santizing the code in JS
+--------->
+
+<!--------
+1. Applying localstorage to dark and light theme of navbar. currently it's in App.js
+2. adding border color to the all comps when It's in dark or light mode. currently it's in Home.js
+--------->
