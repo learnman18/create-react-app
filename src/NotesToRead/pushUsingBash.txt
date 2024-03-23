@@ -1,0 +1,104 @@
+
+extenstion - 
+
+1. react extension pack
+2. ES7 react/redux/graphql/react-native snippet
+
+API key for weather app - 
+
+ee47526df291bceee8c2c1a840ecfa45
+
+https://api.openweathermap.org/data/2.5/weather?q={cityname}&appid={APIkey}
+
+
+API key for foreign exchange - 
+a68edfa87e64e3399f3ba797
+
+https://v6.exchangerate-api.com/v6/a68edfa87e64e3399f3ba797/latest/USD
+
+npm info react-scripts version
+throw new ERR_INVALID_ARG_TYPE(name, 'string', value);
+
+
+const getLocalItem = () => {
+    const x = localStorage.getItem("allItems")
+    if(x){
+        return JSON.parse(localStorage.getItem("allItems"));
+    }else return [];
+}
+
+News API - 
+
+key=356f95ea33764cdbade0c4f3f02a9764
+https://newsapi.org/v2/top-headlines?country=in&apiKey=356f95ea33764cdbade0c4f3f02a9764
+
+------------------------------------------------------------------------------------------
+
+API key of NASA API's
+NASA Page API URL - https://api.nasa.gov/
+section - NASA Image and Video Library - https://images-api.nasa.gov  - I'll be using search endpoint and juno as nasa project.
+https://images-api.nasa.gov/search?q=juno
+
+API Documentation - https://images.nasa.gov/docs/images.nasa.gov_api_docs.pdf
+
+My API key - hwzkLUO11ut9YqX2TueWegxlEZLIW9dr6Rb4h43D
+
+------------------------------------------------------------------------------------------
+
+API for pratice -
+
+https://api.escuelajs.co/api/v1/products?offset=1&limit=5
+-------------------------------------------------------------------------------------------
+
+AUTH0
+
+Domain - dev-b647ji6lgbhuqoqr.us.auth0.com
+Client ID - ieTHJ9yjQ4ut55SVadikiQDEOgSLkSWH
+
+-------------------------------------------------------------------------------------------
+EMail JS for sending email:- emailjs.com
+service id : service_4r5vwgi
+template id : template_cf196pm
+Public id : yxCRFaE732YWUqTOm
+
+-------------------------------------------------------------------------------------------
+
+git status --- to check the staus if the repo (new file, new changes in file)
+git add . -- to add the changes 
+git commit -m"comment"
+git push -- to push the code
+git pull-- to pull the code
+git submodule <url> ---to call reusble common codes from  another repository
+git branch -- to know in which branch we are
+pwd -- to know the current location
+ls -lrt -- to see all the files and folders in the current path
+
+
+git remote set-url origin https://github.com/learnman18/ReactFiles.git
+git init
+git commit -m "first commit"
+
+
+index.js 
+
+import App from 'app.sj';
+
+var root = reactDOM.createRoot(document.getElementById("root"));
+
+root.render(
+<App />
+)
+
+----------------------------------------
+
+{showAccord && <p>{data.Answer}</p>} 
+{/* Inline If with Logical && Operator : syntax - true && expression */}
+
+It works because in JavaScript, true && expression always evaluates to expression, and false && expression always evaluates to false.
+
+Therefore, if the condition is true, the element right after && will appear in the output. If it is false, React will ignore and skip it.
+
+https://legacy.reactjs.org/docs/conditional-rendering.html
+
+----------------------------------------
+

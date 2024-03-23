@@ -1,0 +1,78 @@
+    const DarkLightMode = () => {
+        if(myStyle.color === "black"){
+            setMyStyle({
+                color : "white",
+                BackgroundColor : "black"
+            })
+            setBtnName("Dark");
+
+        }else if(myStyle.color === "white"){
+            setMyStyle({
+                color : "black",
+                BackgroundColor : "white"
+            })
+            setBtnName("Light");
+        }
+        console.log(document.body.style = {myStyle});
+   
+    }
+	
+	
+	
+<!-- -->	
+	
+1. Dark and Ligh using ClassList.add method, In this we have to add a create a class and that class will have all the CSS properties,
+we don't need nay state for this we can just directly do that.
+2. DarkLightMode is function getting called on button click
+
+.bgBlack{
+  background-color: black;
+  color: white;
+}
+	
+	  const DarkLightMode = () => {
+        if(btnName === "Light"){
+            document.body.classList.remove("bgBlack");
+            setBtnName("Dark");
+
+        }else if(btnName === "Dark"){
+            document.body.classList.add("bgBlack");
+            setBtnName("Light");
+        }
+   
+    }
+
+<!-- -->
+
+1. Dark and Ligh using object, we have to use useState and useEffect both the hooks.
+2. 2. DarkLightMode is function getting called on button click
+
+    const [btnName , setBtnName] = useState("Dark");
+    const [isNavItemVisible, setNavItemVisibility] = useState(false);
+    const [myStyle , setMyStyle] = useState({
+        color : "black",
+        backgroundColor : "white"
+    });
+
+const DarkLightMode = () => {
+        if(btnName === "Dark"){
+            setMyStyle({
+                color : "white",
+                backgroundColor : "black"
+            })
+            setBtnName("Light");
+
+        }else if(btnName === "Light"){
+            setMyStyle({
+                color : "black",
+                backgroundColor : "white"
+            })
+            setBtnName("Dark");
+        }
+        console.log(document.body.style = {myStyle});
+   
+    }
+	
+    useEffect(()=>{
+        Object.assign(document.body.style , myStyle);
+    },[myStyle])

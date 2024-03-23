@@ -10,6 +10,7 @@ const CurrencyExchnageTwo = (props) =>{
         const FetchCurrency = async ()=>{
             console.log();
             const url = `https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/${baseCurrency}/${curToBeConvert}.json`;
+            // const url = "";
             try {
                 const response = await fetch(url);
                 const result = await response.json();
@@ -20,7 +21,7 @@ const CurrencyExchnageTwo = (props) =>{
             }
         }
         FetchCurrency();
-    })
+    },[baseCurrency , curToBeConvert])
 
     return(
         <>

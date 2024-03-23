@@ -1,0 +1,78 @@
+spread operator
+destructuring object and array
+
+
+
+[name] : value
+
+
+
+
+
+const App = ()=>{
+
+const [fullName , setFullName] = useState({
+        fname :'',
+        lname :'',
+    });
+
+const InputChangeEvnt = (event)=>{
+
+	const {name , value} = event.target;
+	
+	setFullName((previousValue)=>{
+		console.log(previousValue)
+		
+		return{
+			...previousValue,
+			[name] : value
+		}
+	})
+
+}
+
+return(
+
+<>
+	<div className="logFormFields">
+
+		<div>
+			<input type="text" placeholder="enter your name" name="fname" value={fullName.fname} onChange={InputChangeEvnt}/>
+		</div>
+		<div>
+			<input type="text" placeholder="enter your last name" name="lname" onChange={InputChangeEvnt}/>
+		</div>
+
+	</div>		
+</>
+
+)
+}
+
+Note - 1. [name] takes the value of which is assigned in that input tag...if it's different from the useState obj key value
+so it makes a new key in useState obj....make sure you have to write the same name in the input tag as useState key...
+2. in this example [ ] define name attribute of input tag. But if we write without [ ] then it treat as a new entry .
+3. var a = "b"
+var c = {[a]: "d"}
+details examine
+[a] value containe "b"
+so c obejct represent like this
+var c = {b : "d"}
+
+4. link for more info - square bracket javascript object key - https://stackoverflow.com/questions/32515598/square-brackets-javascript-object-key
+
+
+
+
+the return part inside the InputChangeEvnt function could also be written as  ->
+
+return{
+if(name === "fname"){
+	fname:value,
+	lname:previousValue.lname
+}
+
+}
+
+similiarly we have to write a if condition for each and every input filed.
+but this new feature [name]:value makes it easy even if we have "n" number of fileds we just need to write that two line of code.

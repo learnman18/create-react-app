@@ -1,0 +1,212 @@
+import React, { useState } from "react";
+
+const EffectExample = ()=>{
+
+    const [num , setNum] = useState(0);
+
+    return(
+        <button onClick={
+            (()=>{
+                setNum(num + 1);
+            }, ()=>{
+                console.log("alert");
+            })
+        }>Click {num}</button>
+    )
+}
+
+export default EffectExample;
+
+
+here in the button onclick event we are using callback function to alert the message.
+to use callback function we need to keep everything inside paranthesis(rounded bracket).
+{
+(()=>{},()=>{})
+}
+
+if we are removing the the first rounded bracket or not keeping the whole funciton inside the paranthesis we will get the error.
+
+<!---------
+
+Here in this example, I was working on to get the news on the page through API and I when I wanted to click on next & previous button it should be taking to 
+next and previous page but when I was clicking on the next button which is increment it used to update the value but due to setState's asynchronous nature
+the page wasn't getting updated in the API url variable as you can see in ${this.this.page} and also when I was clicking on decrement button for the first time
+instead of decrementing the value it was updating it but on the 2nd click I was able to decrease but here also the url wasn't getting updated due to the same reason.
+To overcome this we can use callback methond of JS. - see the solution to understand it better.
+
+Problem 2 - 
+
+news.js
+
+
+constructor(){
+        console.log("constructor");
+        super();
+        this.state = {
+            articles:[],
+            page:1,
+            loader:false,
+            status:"",
+            message:""
+            // pageSize:15,
+            // articleLength:""
+            // articles:Articles
+        }
+    }
+
+ NewsInfo = async () => {
+        console.log("cdm");
+        // let url = "";
+        let url = `https://newsapi.org/v2/top-headlines?country=in&category=${this.props.category}&apiKey=356f95ea33764cdbade0c4f3f02a9764&page=${this.state.page}&pageSize=${this.props.pageSize}`;
+        this.setState({loader:true})
+        try {
+            let response = await fetch(url);
+            let result = await response.json();
+            console.log(result);
+            this.setState({status:result.status,message:result.message})
+            this.setState({
+                articles: result.articles,
+                totalResult : result.totalResults,
+                loader : false,
+            })
+        }catch(error){
+            console.error('Error fetching data:', error);
+            this.setState({ loader: false });
+        }
+    }
+
+
+async componentDidMount(){
+        this.NewsInfo();
+    }
+
+ async componentDidUpdate(prevProps) {
+        if (prevProps.category !== this.props.category) {
+            // Fetch new data based on the updated category
+            this.NewsInfo();
+        }
+    }
+
+ increment =  () => {
+        this.setState((prevState)=>({
+            page : this.state.page + 1
+        }))
+    }
+
+ decrement =  () => {
+        this.setState((prevState)=>({
+            page : this.state.page - 1
+        }))
+    }
+
+after a click on increment the value is getting incremented but page is not changing but when I'm clicking on decrement for the first time
+value is getting incremented instead of decrementing but on click on 2nd time its decreasing the value. 
+
+
+solution of problem 2 - 
+
+The issue you are facing might be due to the asynchronous nature of this.setState in React. 
+When you use this.setState to update the state and then immediately try to access the updated state,
+ React doesn't guarantee that the state will be updated synchronously.
+
+To address this, you can use the callback form of this.setState, which accepts a function that receives the previous state
+as an argument and returns the new state. This ensures that you are working with the most up-to-date state.
+
+Here's how you can modify your increment and decrement functions:
+
+increment = () => {
+  this.setState((prevState) => ({
+    page: prevState.page + 1,
+  }), () => {
+    // Callback function that runs after the state has been updated
+    this.NewsInfo();
+  });
+};
+
+decrement = () => {
+  this.setState((prevState) => ({
+    page: prevState.page - 1,
+  }), () => {
+    // Callback function that runs after the state has been updated
+    this.NewsInfo();
+  });
+};
+
+
+--->
+
+Alternative of callback function in react - 
+
+In class components, the setState function in React supports a callback function as its second argument, 
+which is commonly used to execute code after the state has been successfully updated. However, in functional components
+ or components using hooks, the concept of a callback function is replaced by the useEffect hook.
+
+For example, if you were working with a functional component and the useState hook, you could achieve a similar effect using useEffect. Here's an example:
+
+
+import React, { useEffect, useState } from 'react';
+
+const YourComponent = () => {
+  const [page, setPage] = useState(1);
+
+  const NewsInfo = async () => {
+    // Your asynchronous code here
+    console.log('Fetching data for page:', page);
+  };
+
+  useEffect(() => {
+    NewsInfo();
+  }, [page]);
+
+  const increment = () => {
+    setPage((prevPage) => prevPage + 1);
+  };
+
+  const decrement = () => {
+    setPage((prevPage) => prevPage - 1);
+  };
+
+  return (
+    <div>
+      <button onClick={increment}>Increment</button>
+      <button onClick={decrement}>Decrement</button>
+    </div>
+  );
+};
+
+export default YourComponent;
+
+
+In this functional component, the useEffect hook is used to execute the NewsInfo function whenever the page state changes. 
+The increment and decrement functions use the setPage function with a callback to ensure that the updated state is used.
+
+Remember, this is applicable to functional components and components using hooks. If you are still using class components and setState,
+the callback function approach is appropriate.
+
+<!-------------------
+
+when we want to add css classes along the variable of any kind
+
+className={`collapse navbar-collapse col-4 ${isNavItemVisible ? 'show' :'' }`} 
+
+-->
+
+
+
+const url = 'https://currencyconverter.p.rapidapi.com/?from_amount=1&from=USD&to=SEK';
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': 'e9595d0a7emsh39270217918d7b0p1c9e23jsn44e3778fa3b3',
+		'X-RapidAPI-Host': 'currencyconverter.p.rapidapi.com'
+	}
+};
+
+try {
+	const response = await fetch(url, options);
+	const result = await response.text();
+	console.log(result);
+} catch (error) {
+	console.error(error);
+}
+
