@@ -69,6 +69,8 @@ const ContactUsDemo = () => {
         return passwordRegex.test(password);
     }
 
+  /* Email - user can contact us or send there feedback */  
+
     const UserInfoSubmission = (event) => {
         event.preventDefault();
         if(validateForm()){
